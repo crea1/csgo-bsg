@@ -52,7 +52,7 @@
             <form>
                 <div class="form-group">
                     <label class="control-label">Primary</label>
-                    <select class="form-control">
+                    <select class="form-control" ng-change="selectAddToScript(x.bindname, '{{x.bindname}}')" ng-model="x.bindname">
                         <optgroup ng-repeat="p in primary" label="{{ p.name }}">
                             <option ng-repeat="x in p.items" value="{{ x.bindname }}">
                                 {{ x.name }}
@@ -62,10 +62,10 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label">Secondary</label>
-                    <select class="form-control">
+                    <select class="form-control" ng-change="selectAddToScript(a.bindname, '{{a.bindname}}')" ng-model="a.bindname">
                         <optgroup ng-repeat="s in secondary" label="{{ s.name }}">
-                            <option ng-repeat="x in s.items" value="{{ x.bindname }}">
-                                {{ x.name }}
+                            <option ng-repeat="a in s.items" value="{{ a.bindname }}">
+                                {{ a.name }}
                             </option>
                         </optgroup>
                     </select>
