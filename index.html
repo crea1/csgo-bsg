@@ -47,8 +47,29 @@
     <h1>hi</h1>
 
     <div class="row" ng-controller="bindController as bind">
+        <div class="col-md-4">
+            <ul id="keyboard">
+                <li class="symbol">NL</li>
+                <li id="kp_slash"   class="symbol">/</li>
+                <li id="kp_multiply" class="symbol">*</li>
+                <li id="kp_minus"   class="symbol lastitem">-</li>
+                <li id="kp_home"    class="symbol firstitem">7</li>
+                <li id="kp_uparrow" class="symbol">8</li>
+                <li id="kp_pgup"    class="symbol lastitem">9</li>
+                <li id="kp_plus"    class="symbol kp_plus">+</li>
+                <li id="kp_leftarrow" class="symbol firstitem">4</li>
+                <li id="kp_5"       class="symbol">5</li>
+                <li id="kp_rightarrow" class="symbol lastitem">6</li>
+                <li id="kp_end"     class="symbol firstitem">1</li>
+                <li id="kp_downarrow" class="symbol">2</li>
+                <li id="kp_pgdn"    class="symbol">3</li>
+                <li id="kp_enter"   class="symbol lastitem kp_enter">Ent</li>
+                <li id="kp_ins"     class="symbol firstitem kp_zero">0</li>
+                <li id="kp_del"     class="symbol">.</li>
 
-        <div class="col-md-3">
+            </ul>
+        </div>
+        <div class="col-md-4">
             <form>
                 <div class="form-group">
                     <label class="control-label">Primary</label>
@@ -86,7 +107,7 @@
                 </div>
             </form>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div>
                 {{ buyScript }}
             </div>

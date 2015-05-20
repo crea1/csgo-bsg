@@ -4,6 +4,8 @@ var app = angular.module('csgoBindApp', []);
 
             $scope.selectedBindnames = [];
             $scope.buyScript = "";
+            $scope.selectedKey = "";
+            $scope.scriptCollection = {};
 
             $http.get('csgoitems.json').success(function(data) {
                 $scope.primary = [];
@@ -44,11 +46,20 @@ var app = angular.module('csgoBindApp', []);
             };
 
             $scope.generateScript = function() {
-                $scope.buyScript = "bind \"q\" \"";
+                $scope.buyScript = "bind \""+$scope.selectedKey +"\" \"";
                 angular.forEach($scope.selectedBindnames, function(bindname){
                     $scope.buyScript += "buy " + bindname + "; ";
                 })
                 $scope.buyScript += "\"";
+                $scope.scriptCollection[$scope.selectedKey] = $scope.buyScript;
+                console.log($scope.scriptCollection);
             };
+
+            $('#keyboard li').click(function() {
+                $scope.selectedKey = this.id;
+                this.className = this.className + " selected";
+                console.log(this.id);
+            });
         }
     ]);
+
