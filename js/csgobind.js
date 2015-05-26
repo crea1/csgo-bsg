@@ -77,10 +77,12 @@ var app = angular.module('csgoBindApp', []);
             $scope.updateDropDown = function(bindname) {
                 console.log("updateDropDown(" + bindname + ")");
                 if ($scope.selectedKey == bindname) {
+                    $("#" + bindname).removeClass("selected");
                     $scope.selectedKey = undefined;
                 } else {
+                    $("#" + $scope.selectedKey).removeClass("selected");
                     $scope.selectedKey = bindname;
-                    //this.className = this.className + " selected";
+                    $("#" + bindname).addClass("selected");
                     if ($scope.scriptCollection[$scope.selectedKey]) {
                         console.log("collection: " + $scope.scriptCollection+ " selected: " + $scope.scriptCollection[$scope.selectedKey]);
                         $scope.primarySelected = $scope.scriptCollection[$scope.selectedKey].primary;
