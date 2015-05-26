@@ -7,17 +7,22 @@ var app = angular.module('csgoBindApp', []);
             $scope.selectedKey = "";
             $scope.scriptCollection = {};
 
+            $scope.primaryDropDownValues = [];
+            $scope.secondaryDropDownValues = [];
+
             $http.get('csgoitems.json').success(function(data) {
                 $scope.primary = [];
                 $scope.secondary = [];
                 $scope.grenades = [];
                 $scope.equipment = [];
 
-                angular.forEach(data.secondary, function(secondary) {
-                    $scope.secondary.push(secondary);
+                angular.forEach(data.secondary.pistols.items, function(pistol) {
+                    $scope.secondaryDropDownValues.push({name:pistol.name, id:pistol.bindname});
                 });
                 angular.forEach(data.primary, function(primary){
-                    $scope.primary.push(primary)
+                    angular.forEach(primary.items, function(item) {
+                        $scope.primaryDropDownValues.push({name: item.name, id: item.bindname});
+                    });
                 });
                 angular.forEach(data.grenades, function(grenades){
                     $scope.grenades.push(grenades)
@@ -28,9 +33,10 @@ var app = angular.module('csgoBindApp', []);
             });
 
             $scope.selectAddToScript = function(newBind, oldBind) {
-                console.log(newBind + " " + oldBind);
-                $scope.addToScript(oldBind, false);
-                $scope.addToScript(newBind, true);
+                console.log("selectAddToScript:" + newBind + " " + oldBind);
+                //$scope.addToScript(oldBind, false);
+                //$scope.addToScript(newBind, true);
+                $scope.generateScript();
                 console.log($scope.selectedBindnames);
             };
 
@@ -46,20 +52,45 @@ var app = angular.module('csgoBindApp', []);
             };
 
             $scope.generateScript = function() {
-                $scope.buyScript = "bind \""+$scope.selectedKey +"\" \"";
-                angular.forEach($scope.selectedBindnames, function(bindname){
-                    $scope.buyScript += "buy " + bindname + "; ";
-                })
-                $scope.buyScript += "\"";
-                $scope.scriptCollection[$scope.selectedKey] = $scope.buyScript;
+                if ($scope.selectedKey) {
+                    $scope.buyScript = "bind \"" + $scope.selectedKey + "\" \"";
+                    if ($scope.primarySelected) {
+                        $scope.buyScript += "buy " + $scope.primarySelected + ";";
+                    }
+                    if ($scope.secondarySelected) {
+                        $scope.buyScript += "buy " + $scope.secondarySelected + ";";
+                    }
+
+                    angular.forEach($scope.selectedBindnames, function (bindname) {
+                        $scope.buyScript += "buy " + bindname + "; ";
+                    });
+                    $scope.buyScript += "\"";
+
+                    $scope.scriptCollection[$scope.selectedKey] = {
+                        primary:$scope.primarySelected,
+                        secondary:$scope.secondarySelected
+                    };
+                }
                 console.log($scope.scriptCollection);
             };
 
-            $('#keyboard li').click(function() {
-                $scope.selectedKey = this.id;
-                this.className = this.className + " selected";
-                console.log(this.id);
-            });
+            $scope.updateDropDown = function(bindname) {
+                console.log("updateDropDown(" + bindname + ")");
+                if ($scope.selectedKey == bindname) {
+                    $scope.selectedKey = undefined;
+                } else {
+                    $scope.selectedKey = bindname;
+                    //this.className = this.className + " selected";
+                    if ($scope.scriptCollection[$scope.selectedKey]) {
+                        console.log("collection: " + $scope.scriptCollection+ " selected: " + $scope.scriptCollection[$scope.selectedKey]);
+                        $scope.primarySelected = $scope.scriptCollection[$scope.selectedKey].primary;
+                        $scope.secondarySelected = $scope.scriptCollection[$scope.selectedKey].secondary;
+                    } else {
+                        $scope.primarySelected = undefined;
+                        $scope.secondarySelected = undefined;
+                    }
+                }
+            }
         }
     ]);
 

@@ -50,45 +50,43 @@
         <div class="col-md-4">
             <ul id="keyboard">
                 <li class="symbol">NL</li>
-                <li id="kp_slash"   class="symbol">/</li>
-                <li id="kp_multiply" class="symbol">*</li>
-                <li id="kp_minus"   class="symbol lastitem">-</li>
-                <li id="kp_home"    class="symbol firstitem">7</li>
-                <li id="kp_uparrow" class="symbol">8</li>
-                <li id="kp_pgup"    class="symbol lastitem">9</li>
-                <li id="kp_plus"    class="symbol kp_plus">+</li>
-                <li id="kp_leftarrow" class="symbol firstitem">4</li>
-                <li id="kp_5"       class="symbol">5</li>
-                <li id="kp_rightarrow" class="symbol lastitem">6</li>
-                <li id="kp_end"     class="symbol firstitem">1</li>
-                <li id="kp_downarrow" class="symbol">2</li>
-                <li id="kp_pgdn"    class="symbol">3</li>
-                <li id="kp_enter"   class="symbol lastitem kp_enter">Ent</li>
-                <li id="kp_ins"     class="symbol firstitem kp_zero">0</li>
-                <li id="kp_del"     class="symbol">.</li>
+                <li ng-click="updateDropDown('kp_slash')" id="kp_slash"  class="symbol">/</li>
+                <li ng-click="updateDropDown('kp_multiply')" id="kp_multiply" class="symbol">*</li>
+                <li ng-click="updateDropDown('kp_minus')" id="kp_minus"   class="symbol lastitem">-</li>
+                <li ng-click="updateDropDown('kp_home')" id="kp_home"    class="symbol firstitem">7</li>
+                <li ng-click="updateDropDown('kp_uparrow')" id="kp_uparrow" class="symbol">8</li>
+                <li ng-click="updateDropDown('kp_pgup')" id="kp_pgup"    class="symbol lastitem">9</li>
+                <li ng-click="updateDropDown('kp_plus')" id="kp_plus"    class="symbol kp_plus">+</li>
+                <li ng-click="updateDropDown('kp_leftarrow')" id="kp_leftarrow" class="symbol firstitem">4</li>
+                <li ng-click="updateDropDown('kp_5')" id="kp_5"       class="symbol">5</li>
+                <li ng-click="updateDropDown('kp_rightarrow')" id="kp_rightarrow" class="symbol lastitem">6</li>
+                <li ng-click="updateDropDown('kp_end')" id="kp_end"     class="symbol firstitem">1</li>
+                <li ng-click="updateDropDown('kp_downarrow')" id="kp_downarrow" class="symbol">2</li>
+                <li ng-click="updateDropDown('kp_pgdn')" id="kp_pgdn"    class="symbol">3</li>
+                <li ng-click="updateDropDown('kp_enter')" id="kp_enter"   class="symbol lastitem kp_enter">Ent</li>
+                <li ng-click="updateDropDown('kp_ins')" id="kp_ins"     class="symbol firstitem kp_zero">0</li>
+                <li ng-click="updateDropDown('kp_del')" id="kp_del"     class="symbol">.</li>
 
             </ul>
         </div>
         <div class="col-md-4">
             <form>
                 <div class="form-group">
-                    <label class="control-label">Primary</label>
-                    <select class="form-control" ng-change="selectAddToScript(x.bindname, '{{x.bindname}}')" ng-model="x.bindname">
-                        <optgroup ng-repeat="p in primary" label="{{ p.name }}">
-                            <option ng-repeat="x in p.items" value="{{ x.bindname }}">
-                                {{ x.name }}
-                            </option>
-                        </optgroup>
+                    <label class="control-label">Primary {{primarySelected}}</label>
+                    <select class="form-control"
+                            ng-options="p.id as p.name for p in primaryDropDownValues"
+                            ng-model="primarySelected"
+                            ng-change="selectAddToScript(primarySelected, '{{primarySelected}}')"
+                            >
+
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Secondary</label>
-                    <select class="form-control" ng-change="selectAddToScript(a.bindname, '{{a.bindname}}')" ng-model="a.bindname">
-                        <optgroup ng-repeat="s in secondary" label="{{ s.name }}">
-                            <option ng-repeat="a in s.items" value="{{ a.bindname }}">
-                                {{ a.name }}
-                            </option>
-                        </optgroup>
+                    <select class="form-control"
+                            ng-options="s.id as s.name for s in secondaryDropDownValues"
+                            ng-change="selectAddToScript(a.bindname, '{{a.bindname}}')"
+                            ng-model="secondarySelected">
                     </select>
                 </div>
                 <div class="form-group">
