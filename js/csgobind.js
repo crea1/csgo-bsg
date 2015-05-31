@@ -36,6 +36,11 @@ var app = angular.module('csgoBindApp', []);
                 console.log("selectAddToScript:" + newBind + " " + oldBind);
                 //$scope.addToScript(oldBind, false);
                 //$scope.addToScript(newBind, true);
+                $scope.scriptCollection[$scope.selectedKey] = {
+                    primary:$scope.primarySelected,
+                    secondary:$scope.secondarySelected,
+                    bindkey:$scope.selectedKey
+                };
                 $scope.generateScript();
                 console.log($scope.selectedBindnames);
             };
@@ -52,25 +57,18 @@ var app = angular.module('csgoBindApp', []);
             };
 
             $scope.generateScript = function() {
-                if ($scope.selectedKey) {
-                    $scope.buyScript = "bind \"" + $scope.selectedKey + "\" \"";
-                    if ($scope.primarySelected) {
-                        $scope.buyScript += "buy " + $scope.primarySelected + ";";
-                    }
-                    if ($scope.secondarySelected) {
-                        $scope.buyScript += "buy " + $scope.secondarySelected + ";";
-                    }
+                $scope.buyScript ="";
+                angular.forEach($scope.scriptCollection, function(keyBindObject) {
 
-                    angular.forEach($scope.selectedBindnames, function (bindname) {
-                        $scope.buyScript += "buy " + bindname + "; ";
-                    });
-                    $scope.buyScript += "\"";
-
-                    $scope.scriptCollection[$scope.selectedKey] = {
-                        primary:$scope.primarySelected,
-                        secondary:$scope.secondarySelected
-                    };
-                }
+                    $scope.buyScript += "bind \"" + keyBindObject.bindkey + "\" \"";
+                    if (keyBindObject.primary) {
+                        $scope.buyScript += "buy " + keyBindObject.primary + ";";
+                    }
+                    if (keyBindObject.secondary) {
+                        $scope.buyScript += "buy " + keyBindObject.secondary + ";";
+                    }
+                    $scope.buyScript += "\"\n" + String.fromCharCode(13);
+                });
                 console.log($scope.scriptCollection);
             };
 
