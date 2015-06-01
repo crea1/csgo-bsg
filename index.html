@@ -75,8 +75,7 @@
                     <label class="control-label">Primary {{primarySelected}}</label>
                     <select class="form-control"
                             ng-options="p.id as p.name for p in primaryDropDownValues"
-                            ng-model="primarySelected"
-                            ng-change="selectAddToScript(primarySelected, '{{primarySelected}}')"
+                            ng-model="scriptCollection[selectedKey].primary"
                             >
 
                     </select>
@@ -85,28 +84,28 @@
                     <label class="control-label">Secondary</label>
                     <select class="form-control"
                             ng-options="s.id as s.name for s in secondaryDropDownValues"
-                            ng-change="selectAddToScript(a.bindname, '{{a.bindname}}')"
-                            ng-model="secondarySelected">
+                            ng-model="scriptCollection[selectedKey].secondary">
                     </select>
                 </div>
                 <div class="form-group">
                 <div ng-repeat="g in grenades" class="checkbox">
                     <label>
-                        <input type="checkbox" ng-change="addToScript(g.bindname, g.model)" ng-model="g.model">
+                        <input type="checkbox" ng-model="scriptCollection[selectedKey].grenades[g.bindname]">
                         {{ g.name }}
                     </label>
                 </div>
                 </div>
                 <div ng-repeat="e in equipment" class="checkbox">
                     <label>
-                        <input type="checkbox" ng-change="addToScript(e.bindname, e.model)" ng-model="e.model">
+                        <input type="checkbox" ng-model="scriptCollection[selectedKey].equipment[e.bindname]">
                         {{ e.name }}
                     </label>
                 </div>
             </form>
         </div>
         <div class="col-md-4">
-            <pre>{{ buyScript }}</pre>
+            {{ scriptCollection | json }}
+            <pre>{{generateScript()}}</pre>
         </div>
     </div>
 </div>
