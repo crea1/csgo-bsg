@@ -18,7 +18,7 @@ http://code.tutsplus.com/tutorials/creating-a-keyboard-with-css-and-jquery--net-
     height: 40px;
     line-height: 40px;
     text-align: center;
-    background: #fff;
+    /*background: #fff;*/
     border: 1px solid #888888;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -47,5 +47,11 @@ http://code.tutsplus.com/tutorials/creating-a-keyboard-with-css-and-jquery--net-
 
 .selected {
     color: #00b3ee;
+    background-color: #f0f0f0;
+}
+
+.got-configuration {
+    color: #00b3ee;
+
 }
 /* keyboard end */

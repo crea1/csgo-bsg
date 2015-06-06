@@ -62,12 +62,14 @@ var app = angular.module('csgoBindApp', []);
                     }
                     buyScript += "\"\n";
                 });
-                console.log($scope.scriptCollection);
                 return buyScript;
             };
 
             $scope.updateDropDown = function(bindname) {
-                console.log("updateDropDown(" + bindname + ")");
+                if (hasConfiguration(bindname)) {
+                    $("#" + bindname).addClass("got-configuration");
+                }
+
                 if ($scope.selectedKey == bindname) {
                     $("#" + bindname).removeClass("selected");
                     $scope.selectedKey = undefined;
@@ -76,7 +78,18 @@ var app = angular.module('csgoBindApp', []);
                     $scope.selectedKey = bindname;
                     $("#" + bindname).addClass("selected");
                 }
-            }
+            };
+
+            hasConfiguration = function(bindname) {
+                if (!jQuery.isEmptyObject($scope.scriptCollection[bindname])
+                && !jQuery.isEmptyObject($scope.scriptCollection[bindname]).grenades
+                && !jQuery.isEmptyObject($scope.scriptCollection[bindname]).equipment
+                && !jQuery.isEmptyObject($scope.scriptCollection[bindname]).primary
+                && !jQuery.isEmptyObject($scope.scriptCollection[bindname]).secondary) {
+                    return true;
+                }
+                return false;
+            };
         }
     ]);
 
