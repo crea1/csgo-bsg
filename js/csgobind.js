@@ -66,10 +66,6 @@ var app = angular.module('csgoBindApp', []);
             };
 
             $scope.updateDropDown = function(bindname) {
-                if (hasConfiguration(bindname)) {
-                    $("#" + bindname).addClass("got-configuration");
-                }
-
                 if ($scope.selectedKey == bindname) {
                     $("#" + bindname).removeClass("selected");
                     $scope.selectedKey = undefined;
@@ -80,15 +76,67 @@ var app = angular.module('csgoBindApp', []);
                 }
             };
 
-            hasConfiguration = function(bindname) {
-                if (!jQuery.isEmptyObject($scope.scriptCollection[bindname])
-                && !jQuery.isEmptyObject($scope.scriptCollection[bindname]).grenades
-                && !jQuery.isEmptyObject($scope.scriptCollection[bindname]).equipment
-                && !jQuery.isEmptyObject($scope.scriptCollection[bindname]).primary
-                && !jQuery.isEmptyObject($scope.scriptCollection[bindname]).secondary) {
-                    return true;
+            /**
+             * TODO Clean up this horrible method :)
+             */
+            $scope.hasConfiguration = function(bindname) {
+
+                function hasGrenades(grenades) {
+                    console.log("inside hasGrenades");
+                    if (!grenades) {
+                        return false;
+                    } else {
+                        var hasGrenade = false;
+                        angular.forEach($scope.scriptCollection[bindname].grenades, function (grenade) {
+                            if (grenade) {
+                                console.log("GRENADE TRUE")
+                                hasGrenade = true;
+                            }
+                        });
+                    }
+                    return hasGrenade;
                 }
-                return false;
+
+                function hasEquipment(equipment) {
+                    console.log("inside hasEquipment");
+                    if (!equipment) {
+                        return false;
+                    } else {
+                        var hasEquipment = false;
+                        angular.forEach($scope.scriptCollection[bindname].equipment, function (eq) {
+                            if (eq) {
+                                console.log("EQUIPMENT TRUE")
+                                hasEquipment = true;
+                            }
+                        });
+                    }
+                    return hasEquipment;
+                }
+
+                if (jQuery.isEmptyObject($scope.scriptCollection[bindname])) {
+                    console.log("Empty object");
+                    return false;
+                } else {
+                    var primary = $scope.scriptCollection[bindname].primary;
+                    var secondary = $scope.scriptCollection[bindname].secondary;
+
+                    if (primary && !jQuery.isEmptyObject(primary)) {
+                        console.log("found primary");
+                        return true;
+                    } else if (secondary && !jQuery.isEmptyObject(secondary)) {
+                        console.log("found secondary");
+                        return true;
+                    } else if (hasGrenades($scope.scriptCollection[bindname].grenades)) {
+                        console.log("hasGrenades");
+                        return true;
+                    } else if (hasEquipment($scope.scriptCollection[bindname].equipment)) {
+                        console.log("hasEquioment")
+                        return true;
+                    } else {
+                        console.log("else " + bindname)
+                        return false;
+                    }
+                }
             };
         }
     ]);
