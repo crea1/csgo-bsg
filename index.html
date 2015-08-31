@@ -77,7 +77,7 @@
                             ng-options="p.id as p.name for p in primaryDropDownValues"
                             ng-model="scriptCollection[selectedKey].primary"
                             ng-disabled="!isKeySelected()">
-
+                        <option value=""></option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -86,6 +86,7 @@
                             ng-options="s.id as s.name for s in secondaryDropDownValues"
                             ng-model="scriptCollection[selectedKey].secondary"
                             ng-disabled="!isKeySelected()">
+                        <option value=""></option>
                     </select>
                 </div>
                 <div class="form-group">
