@@ -35,8 +35,8 @@ var app = angular.module('csgoBindApp', []);
             $scope.generateScript = function() {
                 var buyScript ="";
                 angular.forEach($scope.scriptCollection, function(keyBindObject, key) {
-                    if (!key) {
-                        //return "";
+                    if (!$scope.hasConfiguration(key)) {
+                        return "";
                     }
 
                     buyScript += "bind \"" + key + "\" \"";
