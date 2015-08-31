@@ -47,11 +47,12 @@ http://code.tutsplus.com/tutorials/creating-a-keyboard-with-css-and-jquery--net-
 
 .selected {
     color: #00b3ee;
-    background-color: #f0f0f0;
+    background-color: #d4d4d4 !important;
 }
 
 .got-configuration-true {
-    color: #00b333;
+    color: #0099ee;
+    background-color: #f0f0f0;
 
 }
 /* keyboard end */
