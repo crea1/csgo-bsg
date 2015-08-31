@@ -48,14 +48,14 @@ var app = angular.module('csgoBindApp', []);
                     }
                     if (keyBindObject.grenades) {
                         angular.forEach($scope.grenades, function(grenade) {
-                            if (keyBindObject.grenades[grenade.bindname]) {
+                            if (keyBindObject.grenades[grenade.id]) {
                                 buyScript += "buy " + grenade.bindname + ";";
                             }
                         });
                     }
                     if (keyBindObject.equipment) {
                         angular.forEach($scope.equipment, function(equipment) {
-                            if (keyBindObject.equipment[equipment.bindname]) {
+                            if (keyBindObject.equipment[equipment.id]) {
                                 buyScript += "buy " + equipment.bindname + ";";
                             }
                         });
@@ -82,14 +82,12 @@ var app = angular.module('csgoBindApp', []);
             $scope.hasConfiguration = function(bindname) {
 
                 function hasGrenades(grenades) {
-                    console.log("inside hasGrenades");
                     if (!grenades) {
                         return false;
                     } else {
                         var hasGrenade = false;
                         angular.forEach($scope.scriptCollection[bindname].grenades, function (grenade) {
                             if (grenade) {
-                                console.log("GRENADE TRUE")
                                 hasGrenade = true;
                             }
                         });
@@ -98,14 +96,12 @@ var app = angular.module('csgoBindApp', []);
                 }
 
                 function hasEquipment(equipment) {
-                    console.log("inside hasEquipment");
                     if (!equipment) {
                         return false;
                     } else {
                         var hasEquipment = false;
                         angular.forEach($scope.scriptCollection[bindname].equipment, function (eq) {
                             if (eq) {
-                                console.log("EQUIPMENT TRUE")
                                 hasEquipment = true;
                             }
                         });

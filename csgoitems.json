@@ -146,44 +146,60 @@
   },
   "grenades": {
     "hegrenade": {
+      "id": "he",
       "name": "High Explosive Grenade",
       "bindname": "hegrenade"
     },
-    "flashbang": {
+    "flashbang1": {
+      "id": "flashbang1",
+      "name": "Flashbang",
+      "bindname": "flashbang"
+    },
+
+    "flashbang2": {
+      "id": "flashbang2",
       "name": "Flashbang",
       "bindname": "flashbang"
     },
     "decoy": {
+      "id": "decoy",
       "name": "Decoy Grenade",
       "bindname": "decoy"
     },
     "molotov": {
+      "id": "molotov",
       "name": "Molotov",
       "bindname": "molotov"
     },
     "incgrenade": {
+      "id": "incendiary",
       "name": "Incendiary Grenade",
       "bindname": "incgrenade"
     },
     "smokegrenade": {
+      "id": "smoke",
       "name": "Smoke Grenade",
       "bindname": "smokegrenade"
     }
   },
   "equipment": {
     "vest": {
+      "id": "kevlar",
       "name": "Kevlar",
       "bindname": "vest"
     },
     "vesthelm": {
+      "id": "kevlarhelm",
       "name": "Kevlar + Helmet",
       "bindname": "vesthelm"
     },
     "defuser": {
+      "id": "defuse",
       "name": "Defuse Kit",
       "bindname": "defuser"
     },
     "taser": {
+      "id": "taser",
       "name": "Zeus x27",
       "bindname": "taser"
     }

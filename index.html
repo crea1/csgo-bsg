@@ -92,7 +92,7 @@
                 <div class="form-group">
                 <div ng-repeat="g in grenades" class="checkbox">
                     <label>
-                        <input type="checkbox" ng-model="scriptCollection[selectedKey].grenades[g.bindname]" ng-disabled="!isKeySelected()">
+                        <input type="checkbox" ng-model="scriptCollection[selectedKey].grenades[g.id]" ng-disabled="!isKeySelected()">
 
                         {{ g.name }}
                     </label>
@@ -100,7 +100,7 @@
                 </div>
                 <div ng-repeat="e in equipment" class="checkbox">
                     <label>
-                        <input type="checkbox" ng-model="scriptCollection[selectedKey].equipment[e.bindname]" ng-disabled="!isKeySelected()">
+                        <input type="checkbox" ng-model="scriptCollection[selectedKey].equipment[e.id]" ng-disabled="!isKeySelected()">
                         {{ e.name }}
                     </label>
                 </div>
