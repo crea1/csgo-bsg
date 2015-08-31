@@ -138,6 +138,10 @@ var app = angular.module('csgoBindApp', []);
                     }
                 }
             };
+
+            $scope.isKeySelected = function() {
+                return $scope.selectedKey && $scope.selectedKey != "";
+            };
         }
     ]);
 
