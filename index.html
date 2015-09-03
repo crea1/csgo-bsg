@@ -74,7 +74,7 @@
                 <div class="form-group">
                     <label class="control-label">Primary {{primarySelected}}</label>
                     <select class="form-control"
-                            ng-options="p.id as p.name for p in primaryDropDownValues"
+                            ng-options="p.id as p.name group by p.group for p in primaryDropDownValues"
                             ng-model="scriptCollection[selectedKey].primary"
                             ng-disabled="!isKeySelected()">
                         <option value=""></option>

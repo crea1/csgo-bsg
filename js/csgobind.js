@@ -21,7 +21,7 @@ var app = angular.module('csgoBindApp', []);
                 });
                 angular.forEach(data.primary, function(primary){
                     angular.forEach(primary.items, function(item) {
-                        $scope.primaryDropDownValues.push({name: item.name, id: item.bindname});
+                        $scope.primaryDropDownValues.push({name: item.name, id: item.bindname, group: item.group});
                     });
                 });
                 angular.forEach(data.grenades, function(grenades){
