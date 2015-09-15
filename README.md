@@ -9,6 +9,7 @@ npm install --save-dev gulp
 npm install --save-dev gulp-rename
 npm install --save-dev gulp-uglify
 npm install --save-dev gulp-replace
+npm install --save-dev gulp del
 # Bower
 npm install -g bower
 ```
