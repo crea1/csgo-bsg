@@ -15,7 +15,7 @@ gulp.task('clean', function() {
 
 // Minify javascripts
 gulp.task('js', ['clean'], function() {
-    return gulp.src('js/csgobind.js')
+    return gulp.src('src/js/csgobind.js')
         .pipe(uglify({ mangle:true }))
         .pipe(rename({ extname: '.min.js' }))
         .pipe(gulp.dest(BUILD_DIR + 'js/'));
@@ -23,20 +23,20 @@ gulp.task('js', ['clean'], function() {
 
 // Move html files and update references 
 gulp.task('html', ['clean'], function() {
-    return gulp.src('index.html')
+    return gulp.src('src/index.html')
         .pipe(replace('js/csgobind.js', 'js/csgobind.min.js'))
         .pipe(gulp.dest(BUILD_DIR));
 });
 
 // Move css files
 gulp.task('styles', ['clean'], function() {
-    return gulp.src('css/*.css')
+    return gulp.src('src/css/*.css')
         .pipe(gulp.dest(BUILD_DIR + 'css/'));
 });
 
 // Move datafiles
 gulp.task('data', ['clean'], function() {
-    return gulp.src('csgoitems.json')
+    return gulp.src('src/csgoitems.json')
         .pipe(gulp.dest(BUILD_DIR));
 });
 
@@ -44,7 +44,7 @@ gulp.task('data', ['clean'], function() {
 // TODO change to only grab relevant files
 gulp.task('bower_components', ['clean'], function() {
     var components = [   ];
-    return gulp.src('bower_components/**')
+    return gulp.src('src/bower_components/**')
         .pipe(gulp.dest(BUILD_DIR + 'bower_components/'));
 });
 
