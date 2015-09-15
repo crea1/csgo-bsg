@@ -20,6 +20,7 @@ http://code.tutsplus.com/tutorials/creating-a-keyboard-with-css-and-jquery--net-
     text-align: center;
     /*background: #fff;*/
     border: 1px solid #888888;
+    border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
 }
