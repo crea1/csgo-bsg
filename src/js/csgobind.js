@@ -10,25 +10,30 @@ var app = angular.module('csgoBindApp', []);
             $scope.secondaryDropDownValues = [];
             $scope.grenadeSelection = {};
 
-            $http.get('csgoitems.json').success(function(data) {
+            $http.get('data/primary.json').success(function(data) {
                 $scope.primary = [];
-                $scope.secondary = [];
-                $scope.grenades = [];
-                $scope.equipment = [];
-
-                angular.forEach(data.secondary.pistols.items, function(pistol) {
-                    $scope.secondaryDropDownValues.push({name:pistol.name, id:pistol.bindname});
-                });
-                angular.forEach(data.primary, function(primary){
+                angular.forEach(data.primary, function(primary) {
                     angular.forEach(primary.items, function(item) {
                         $scope.primaryDropDownValues.push({name: item.name, id: item.bindname, group: item.group});
                     });
                 });
-                angular.forEach(data.grenades, function(grenades){
-                    $scope.grenades.push(grenades)
+            });
+            $http.get('data/secondary.json').success(function(data) {
+                $scope.secondary = [];
+                angular.forEach(data.items, function(pistol) {
+                    $scope.secondaryDropDownValues.push({name:pistol.name, id:pistol.bindname});
                 });
+            });
+            $http.get('data/grenades.json').success(function(data) {
+                $scope.grenades = [];
+                angular.forEach(data.grenades, function(grenades){
+                    $scope.grenades.push(grenades);
+                });
+            });
+            $http.get('data/equipment.json').success(function(data) {
+                $scope.equipment = [];
                 angular.forEach(data.equipment, function(equipment){
-                    $scope.equipment.push(equipment)
+                    $scope.equipment.push(equipment);
                 });
             });
 

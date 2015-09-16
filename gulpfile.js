@@ -37,8 +37,8 @@ gulp.task('styles', ['clean'], function() {
 
 // Move datafiles
 gulp.task('data', ['clean'], function() {
-    return gulp.src('src/csgoitems.json')
-        .pipe(gulp.dest(BUILD_DIR));
+    return gulp.src('src/data/*.json')
+        .pipe(gulp.dest(BUILD_DIR + 'data/'));
 });
 
 // Move bower components

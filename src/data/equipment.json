@@ -1,0 +1,24 @@
+{
+  "equipment": {
+    "vest": {
+      "id": "kevlar",
+      "name": "Kevlar",
+      "bindname": "vest"
+    },
+    "vesthelm": {
+      "id": "kevlarhelm",
+      "name": "Kevlar + Helmet",
+      "bindname": "vesthelm"
+    },
+    "defuser": {
+      "id": "defuse",
+      "name": "Defuse Kit",
+      "bindname": "defuser"
+    },
+    "taser": {
+      "id": "taser",
+      "name": "Zeus x27",
+      "bindname": "taser"
+    }
+  }
+}
