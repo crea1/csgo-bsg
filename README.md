@@ -10,6 +10,7 @@ npm install --save-dev gulp-rename
 npm install --save-dev gulp-uglify
 npm install --save-dev gulp-replace
 npm install --save-dev gulp del
+npm install --save-dev gulp-connect
 # Bower
 npm install -g bower
 ```
@@ -18,4 +19,12 @@ npm install -g bower
 ```bash
 bower install
 gulp
+```
+
+### Development
+
+To run live reload of code use
+
+```bash
+gulp reload
 ```

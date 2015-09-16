@@ -5,6 +5,7 @@ var rename = require('gulp-rename');
 var replace = require('gulp-replace');
 var uglify = require('gulp-uglify');
 var del = require('del');
+var connect = require('gulp-connect');
 
 var BUILD_DIR = 'build/'
 
@@ -48,4 +49,33 @@ gulp.task('bower_components', ['clean'], function() {
         .pipe(gulp.dest(BUILD_DIR + 'bower_components/'));
 });
 
+
+//--- [START]  Gulp connect live reload ---//
+
+gulp.task('connect', function() {
+    connect.server({
+        root: 'src',
+        livereload: true
+    });
+});
+
+gulp.task('html-connect', function () {
+    gulp.src(['./src/*.html'])
+        .pipe(connect.reload());
+});
+
+gulp.task('watch', function () {
+    gulp.watch(['./src/*.html', './src/css/*.css', './src/js/*.js'], ['html-connect']);
+});
+ 
+//--- [END] Gulp connect live reload ---//
+
+
+
+
+
+// Run this for live reload when code is changed
+gulp.task('reload', ['connect', 'watch']);
+
+// Default, builds project 
 gulp.task('default', ['js', 'html', 'styles','data', 'bower_components']);
