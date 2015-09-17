@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var gulp = require('gulp');
 var rename = require('gulp-rename');
@@ -7,7 +7,7 @@ var uglify = require('gulp-uglify');
 var del = require('del');
 var connect = require('gulp-connect');
 
-var BUILD_DIR = 'build/'
+var BUILD_DIR = 'build/';
 
 // Remove build folder
 gulp.task('clean', function() {
@@ -44,7 +44,6 @@ gulp.task('data', ['clean'], function() {
 // Move bower components
 // TODO change to only grab relevant files
 gulp.task('bower_components', ['clean'], function() {
-    var components = [   ];
     return gulp.src('src/bower_components/**')
         .pipe(gulp.dest(BUILD_DIR + 'bower_components/'));
 });

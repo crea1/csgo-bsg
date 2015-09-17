@@ -131,10 +131,10 @@ var app = angular.module('csgoBindApp', []);
                         console.log("hasGrenades");
                         return true;
                     } else if (hasEquipment($scope.scriptCollection[bindname].equipment)) {
-                        console.log("hasEquioment")
+                        console.log("hasEquioment");
                         return true;
                     } else {
-                        console.log("else " + bindname)
+                        console.log("else " + bindname);
                         return false;
                     }
                 }
