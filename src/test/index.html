@@ -1,23 +1,26 @@
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.3/jasmine.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.3/jasmine.min.js"></script>
-        <!--<script src="../bower_components/angularjs/angular.min.js"></script>-->
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.3/jasmine-html.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.3/boot.min.js"></script>
+<head>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.3/jasmine.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.3/jasmine.min.js"></script>
+    <!--<script src="../bower_components/angularjs/angular.min.js"></script>-->
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.3/jasmine-html.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.3/boot.min.js"></script>
 
-        <!-- Angular and Angular Mock references -->
-        <script type="text/javascript" src="https://code.angularjs.org/1.4.0-rc.2/angular.min.js"></script>
-        <script type="text/javascript" src="https://code.angularjs.org/1.4.0-rc.2/angular-mocks.js"></script>
+    <!-- Angular and Angular Mock references -->
+    <script type="text/javascript" src="https://code.angularjs.org/1.4.0-rc.2/angular.min.js"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.4.0-rc.2/angular-mocks.js"></script>
 
-        <script type="text/javascript" src="../js/csgobind.js"></script>
+    <script type="text/javascript" src="../js/csgobind.js"></script>
 
-    </head>
-    <body>
-    </body>
-    <script type="text/javascript">
-    describe("Dumb test", function() {
-        it("spec", function() {
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+
+</head>
+<body>
+</body>
+<script type="text/javascript">
+    describe("Dumb test", function () {
+        it("spec", function () {
             expect(true).toBe(true);
         });
     });
@@ -26,14 +29,14 @@
 
         beforeEach(module('csgoBindApp'));
         var $controller;
-        beforeEach(inject(function(_$controller_){
+        beforeEach(inject(function (_$controller_) {
             $controller = _$controller_;
         }));
 
         describe('isKeySelected', function () {
             it('shold be true if key has value', function () {
                 var $scope = {};
-                var controller = $controller('bindController', { $scope: $scope });
+                var controller = $controller('bindController', {$scope: $scope});
                 $scope.selectedKey = "someKey";
                 var result = $scope.isKeySelected();
                 expect(result).toBe(true);
@@ -41,15 +44,67 @@
 
             it('should be false if empty string', function () {
                 var $scope = {};
-                var controller = $controller('bindController', { $scope: $scope });
+                var controller = $controller('bindController', {$scope: $scope});
                 $scope.selectedKey = "";
                 var result = $scope.isKeySelected();
                 expect(result).toBe(false);
             });
 
+
         });
 
+        describe('hasConfiguration', function () {
+            it('empty scriptCollection should be false', function () {
+                var $scope = {};
+                var controller = $controller('bindController', {$scope: $scope});
+                $scope.scriptCollection = {};
+                var result = $scope.hasConfiguration('kp_plus');
+                expect(result).toBe(false);
+            });
+            it('primary in scriptCollection should be true', function () {
+                var $scope = {};
+                var controller = $controller('bindController', {$scope: $scope});
+                $scope.scriptCollection = { "kp_plus": { "primary": "bizon" } };
+                var result = $scope.hasConfiguration('kp_plus');
+                expect(result).toBe(true);
+            });
+            it('secondary in scriptCollection should be true', function () {
+                var $scope = {};
+                var controller = $controller('bindController', {$scope: $scope});
+                $scope.scriptCollection = { "kp_plus": { "secondary": "p250" } };
+                var result = $scope.hasConfiguration('kp_plus');
+                expect(result).toBe(true);
+            });
+            it('grenade in scriptCollection should be true', function () {
+                var $scope = {};
+                var controller = $controller('bindController', {$scope: $scope});
+                $scope.scriptCollection = { "kp_plus": { "grenades": { "smoke": true } } };
+                var result = $scope.hasConfiguration('kp_plus');
+                expect(result).toBe(true);
+            });
+            it('equipment in scriptCollection should be true', function () {
+                var $scope = {};
+                var controller = $controller('bindController', {$scope: $scope});
+                $scope.scriptCollection = { "kp_plus": { "equipment": { "defuse": true } } };
+                var result = $scope.hasConfiguration('kp_plus');
+                expect(result).toBe(true);
+            });
+            it('grenade in scriptCollection but is false should be false', function () {
+                var $scope = {};
+                var controller = $controller('bindController', {$scope: $scope});
+                $scope.scriptCollection = { "kp_plus": { "grenades": { "smoke": false } } };
+                var result = $scope.hasConfiguration('kp_plus');
+                expect(result).toBe(false);
+            });
+            it('equipment in scriptCollection but is false should be false', function () {
+                var $scope = {};
+                var controller = $controller('bindController', {$scope: $scope});
+                $scope.scriptCollection = { "kp_plus": { "equipment": { "defuse": false } } };
+                var result = $scope.hasConfiguration('kp_plus');
+                expect(result).toBe(false);
+            });
+        });
     });
 
-    </script>
+</script>
 </html>
