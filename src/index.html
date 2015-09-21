@@ -71,14 +71,18 @@
         </div>
         <div class="col-md-4">
             <form>
-                <div class="form-group">
-                    <label class="control-label">Primary {{primarySelected}}</label>
-                    <select class="form-control"
-                            ng-options="p.id as p.name group by p.group for p in primaryDropDownValues"
-                            ng-model="scriptCollection[selectedKey].primary"
-                            ng-disabled="!isKeySelected()">
-                        <option value="" selected></option>
-                    </select>
+                <div class="btn-group" id="primary-group">
+                    <button type="button" ng-disabled="!isKeySelected()" class="btn btn-default"><span>{{scriptCollection[selectedKey].primary.name || "Primary Weapons"}}</span></button>
+                    <button type="button" ng-disabled="!isKeySelected()" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a ng-click="dropboxitemselected()">&nbsp;</a></li>
+                        <li ng-repeat-start="group in primaryDropDownValues.primary" class="dropdown-header">{{group.name}}</li>
+                        <li ng-repeat="p in group.items"><a ng-click="dropboxitemselected(p)">{{p.name}}</a></li>
+                        <li ng-repeat-end class=""></li>
+                    </ul>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Secondary</label>
@@ -113,7 +117,7 @@
         <div class="row">
             <div class="col-md-12">
                 Debug scriptCollection
-                <pre>{{ grenades | json }}</pre>
+                <pre>{{ primaryDropDownValues | json }}</pre>
             </div>
         </div>
     </div>

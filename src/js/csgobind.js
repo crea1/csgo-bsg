@@ -4,19 +4,14 @@ var app = angular.module('csgoBindApp', []);
 
             $scope.selectedBindnames = [];
             $scope.selectedKey = "";
-            $scope.scriptCollection = {};
+            $scope.scriptCollection = {kp_plus:[]};
 
             $scope.primaryDropDownValues = [];
             $scope.secondaryDropDownValues = [];
             $scope.grenadeSelection = {};
 
             $http.get('data/primary_combined.json').success(function(data) {
-                $scope.primary = [];
-                angular.forEach(data.primary, function(primary) {
-                    angular.forEach(primary.items, function(item) {
-                        $scope.primaryDropDownValues.push({name: item.name, id: item.bindname, group: item.group});
-                    });
-                });
+                $scope.primaryDropDownValues = data;
             });
             $http.get('data/secondary_combined.json').success(function(data) {
                 $scope.secondary = [];
@@ -46,8 +41,8 @@ var app = angular.module('csgoBindApp', []);
 
                     buyScript += "bind \"" + key + "\" \"";
                     if (keyBindObject.primary) {
-                        for (var i = 0; i < keyBindObject.primary.length; i++) {
-                            buyScript += "buy " + keyBindObject.primary[i] + ";";
+                        for (var i = 0; i < keyBindObject.primary.bindname.length; i++) {
+                            buyScript += "buy " + keyBindObject.primary.bindname[i] + ";";
                         }
                     }
                     if (keyBindObject.secondary) {
@@ -75,6 +70,7 @@ var app = angular.module('csgoBindApp', []);
             };
 
             $scope.updateDropDown = function(bindname) {
+
                 if ($scope.selectedKey == bindname) {
                     $("#" + bindname).removeClass("selected");
                     $scope.selectedKey = undefined;
@@ -147,6 +143,16 @@ var app = angular.module('csgoBindApp', []);
             $scope.isKeySelected = function() {
                 return ($scope.selectedKey && $scope.selectedKey.length > 0) === true;
             };
+
+            $scope.selectedPrimary = null;
+            $scope.dropboxitemselected = function (item) {
+                $scope.selectedPrimary = item;
+                if (item) {
+                    $scope.scriptCollection[$scope.selectedKey] = {primary : item};
+                } else {
+                    $scope.scriptCollection[$scope.selectedKey] = {primary : null};
+                }
+            }
         }
     ]);
 
