@@ -93,7 +93,7 @@
                 <div ng-repeat="g in grenades" class="checkbox">
                     <label>
                         <input type="checkbox" ng-model="scriptCollection[selectedKey].grenades[g.id]" ng-disabled="!isKeySelected()">
-
+                        <img style="height: 14px" src="images/{{ g.img }}"/>
                         {{ g.name }}
                     </label>
                 </div>
@@ -101,14 +101,20 @@
                 <div ng-repeat="e in equipment" class="checkbox">
                     <label>
                         <input type="checkbox" ng-model="scriptCollection[selectedKey].equipment[e.id]" ng-disabled="!isKeySelected()">
+                        <img style="height: 14px" src="images/{{ e.img }}"/>
                         {{ e.name }}
                     </label>
                 </div>
             </form>
         </div>
         <div class="col-md-4">
-            {{ scriptCollection | json }}
             <pre>{{generateScript()}}</pre>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                Debug scriptCollection
+                <pre>{{ grenades | json }}</pre>
+            </div>
         </div>
     </div>
 </div>

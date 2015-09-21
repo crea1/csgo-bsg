@@ -3,22 +3,26 @@
     "vest": {
       "id": "kevlar",
       "name": "Kevlar",
-      "bindname": "vest"
+      "bindname": "vest",
+      "img": "vest_b.png"
     },
     "vesthelm": {
       "id": "kevlarhelm",
       "name": "Kevlar + Helmet",
-      "bindname": "vesthelm"
+      "bindname": "vesthelm",
+      "img": "vesthelm_b.png"
     },
     "defuser": {
       "id": "defuse",
       "name": "Defuse Kit",
-      "bindname": "defuser"
+      "bindname": "defuser",
+      "img": "defuser_b.png"
     },
     "taser": {
       "id": "taser",
       "name": "Zeus x27",
-      "bindname": "taser"
+      "bindname": "taser",
+      "img": "taser_b.png"
     }
   }
 }
