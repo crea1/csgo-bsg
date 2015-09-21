@@ -1,0 +1,25 @@
+{
+  "name": "Pistols",
+  "items": {
+    "glock": {
+      "name": "P2000 / USP-S / Glock-18",
+      "bindname": ["glock", "hkp2000"]
+    },
+    "elite": {
+      "name": "Dual Berettas",
+      "bindname": ["elite"]
+    },
+    "p250": {
+      "name": "P250",
+      "bindname": ["p250"]
+    },
+    "tec9": {
+      "name": "Five-SeveN / Tec-9 / CZ75-Auto",
+      "bindname": ["fn57", "tec9"]
+    },
+    "deagle": {
+      "name": "Desert Eagle",
+      "bindname": "deagle"
+    }
+  }
+}

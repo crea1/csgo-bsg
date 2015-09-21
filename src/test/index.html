@@ -33,8 +33,47 @@
             $controller = _$controller_;
         }));
 
+        describe('generateScript', function () {
+            it('should loop through list of binds', function () {
+                var $scope = {};
+                var controller = $controller('bindController', {$scope: $scope});
+                $scope.scriptCollection = { "kp_plus": { "secondary": [ "fn57", "tec9" ] } };
+                var result = $scope.generateScript();
+                expect(result).toMatch('bind "kp_plus" "buy fn57;buy tec9;"');
+            });
+            it('should not output grenades that are false', function () {
+                var $scope = {};
+                var controller = $controller('bindController', {$scope: $scope});
+                $scope.scriptCollection = { "kp_plus": { "grenades": { "he": false, "flashbang1": false } } };
+                var result = $scope.generateScript();
+                expect(result).toMatch('');
+            });
+            it('should output grenades that are true', function () {
+                var $scope = {};
+                var controller = $controller('bindController', {$scope: $scope});
+                $scope.grenades = [
+                    {
+                        "id": "he",
+                        "name": "High Explosive Grenade",
+                        "bindname": "hegrenade"
+                    },
+                    {
+                        "id": "flashbang1",
+                        "name": "Flashbang",
+                        "bindname": "flashbang"
+                    }
+                ];
+                $scope.scriptCollection = { "kp_plus": { "grenades": { "flashbang1": false, "he": true } } };
+                var result = $scope.generateScript();
+                expect(result).toMatch('bind "kp_plus" "buy hegrenade;"');
+            });
+
+
+
+        });
+
         describe('isKeySelected', function () {
-            it('shold be true if key has value', function () {
+            it('should be true if key has value', function () {
                 var $scope = {};
                 var controller = $controller('bindController', {$scope: $scope});
                 $scope.selectedKey = "someKey";

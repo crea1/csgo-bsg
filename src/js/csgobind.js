@@ -10,7 +10,7 @@ var app = angular.module('csgoBindApp', []);
             $scope.secondaryDropDownValues = [];
             $scope.grenadeSelection = {};
 
-            $http.get('data/primary.json').success(function(data) {
+            $http.get('data/primary_combined.json').success(function(data) {
                 $scope.primary = [];
                 angular.forEach(data.primary, function(primary) {
                     angular.forEach(primary.items, function(item) {
@@ -18,7 +18,7 @@ var app = angular.module('csgoBindApp', []);
                     });
                 });
             });
-            $http.get('data/secondary.json').success(function(data) {
+            $http.get('data/secondary_combined.json').success(function(data) {
                 $scope.secondary = [];
                 angular.forEach(data.items, function(pistol) {
                     $scope.secondaryDropDownValues.push({name:pistol.name, id:pistol.bindname});
@@ -46,10 +46,14 @@ var app = angular.module('csgoBindApp', []);
 
                     buyScript += "bind \"" + key + "\" \"";
                     if (keyBindObject.primary) {
-                        buyScript += "buy " + keyBindObject.primary + ";";
+                        for (var i = 0; i < keyBindObject.primary.length; i++) {
+                            buyScript += "buy " + keyBindObject.primary[i] + ";";
+                        }
                     }
                     if (keyBindObject.secondary) {
-                        buyScript += "buy " + keyBindObject.secondary + ";";
+                        for (var j = 0; j < keyBindObject.secondary.length; j++) {
+                            buyScript += "buy " + keyBindObject.secondary[j] + ";";
+                        }
                     }
                     if (keyBindObject.grenades) {
                         angular.forEach($scope.grenades, function(grenade) {
