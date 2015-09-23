@@ -19,7 +19,7 @@
     },
     "deagle": {
       "name": "Desert Eagle",
-      "bindname": "deagle"
+      "bindname": ["deagle"]
     }
   }
 }
