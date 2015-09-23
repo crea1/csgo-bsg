@@ -6,12 +6,14 @@ var replace = require('gulp-replace');
 var uglify = require('gulp-uglify');
 var del = require('del');
 var connect = require('gulp-connect');
+var zip = require('gulp-zip');
 
 var BUILD_DIR = 'build/';
+var DIST_DIR = 'dist/';
 
 // Remove build folder
 gulp.task('clean', function() {
-    return del(['build/'])
+    return del(['build/', 'dist'])
 });
 
 // Minify javascripts
@@ -71,7 +73,11 @@ gulp.task('watch', function () {
 
 
 
-
+gulp.task('release', ['default'], function () {
+    return gulp.src('build/**')
+        .pipe(zip('csgo-bsg.zip'))
+        .pipe(gulp.dest(DIST_DIR));
+});
 
 // Run this for live reload when code is changed
 gulp.task('reload', ['connect', 'watch']);

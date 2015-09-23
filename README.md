@@ -11,6 +11,8 @@ npm install --save-dev gulp-uglify
 npm install --save-dev gulp-replace
 npm install --save-dev gulp del
 npm install --save-dev gulp-connect
+npm install --save-dev gulp-zip
+
 # Bower
 npm install -g bower
 ```
