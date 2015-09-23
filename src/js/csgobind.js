@@ -69,8 +69,10 @@ var app = angular.module('csgoBindApp', []);
                 return buyScript;
             };
 
-            $scope.updateDropDown = function(bindname) {
-
+            $scope.onKeyClick = function(bindname) {
+                if (!$scope.scriptCollection[bindname]) {
+                    $scope.scriptCollection[bindname] = {};
+                }
                 if ($scope.selectedKey == bindname) {
                     $("#" + bindname).removeClass("selected");
                     $scope.selectedKey = undefined;
