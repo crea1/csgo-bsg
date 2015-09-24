@@ -93,7 +93,7 @@
                     </button>
                     <ul class="dropdown-menu">
                         <li><a ng-click="secondarySelected()">&nbsp;</a></li>
-                        <li ng-repeat="s in secondaryDropDownValues.items"><a ng-click="secondarySelected(s)">{{s.name}}</a></li>
+                        <li ng-repeat="s in secondaryDropDownValues.items"><a ng-click="secondarySelected(s)"><img style="height: 14px" src="images/{{ s.img }}"/>{{s.name}}</a></li>
                     </ul>
                 </div>
                 </div>

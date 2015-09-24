@@ -3,23 +3,28 @@
   "items": {
     "glock": {
       "name": "P2000 / USP-S / Glock-18",
-      "bindname": ["glock", "hkp2000"]
+      "bindname": ["glock", "hkp2000"],
+      "img": "glock_b.png"
     },
     "elite": {
       "name": "Dual Berettas",
-      "bindname": ["elite"]
+      "bindname": ["elite"],
+      "img": "dualelite_b.png"
     },
     "p250": {
       "name": "P250",
-      "bindname": ["p250"]
+      "bindname": ["p250"],
+      "img": "p250_b.png"
     },
     "tec9": {
       "name": "Five-SeveN / Tec-9 / CZ75-Auto",
-      "bindname": ["fn57", "tec9"]
+      "bindname": ["fn57", "tec9"],
+      "img": "fiveseven_b.png"
     },
     "deagle": {
       "name": "Desert Eagle",
-      "bindname": ["deagle"]
+      "bindname": ["deagle"],
+      "img": "deagle_b.png"
     }
   }
 }
