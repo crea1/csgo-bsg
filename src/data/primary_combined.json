@@ -68,12 +68,16 @@
         },
         "p90": {
           "name": "P90",
-          "bindname": "p90",
+          "bindname": [
+            "p90"
+          ],
           "group": "SMG"
         },
         "ump45": {
           "name": "UMP-45",
-          "bindname": "ump45",
+          "bindname": [
+            "ump45"
+          ],
           "group": "SMG"
         }
       }
