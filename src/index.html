@@ -71,31 +71,33 @@
         </div>
         <div class="col-md-4">
             <form>
-                <div class="btn-group" id="primary-group">
-                    <button type="button" ng-disabled="!isKeySelected()" class="btn btn-default"><span>{{scriptCollection[selectedKey].primary.name || "Primary Weapons"}}</span></button>
-                    <button type="button" ng-disabled="!isKeySelected()" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="caret"></span>
-                        <span class="sr-only">Toggle Dropdown</span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a ng-click="primarySelected()">&nbsp;</a></li>
-                        <li ng-repeat-start="group in primaryDropDownValues.primary" class="dropdown-header">{{group.name}}</li>
-                        <li ng-repeat="p in group.items"><a ng-click="primarySelected(p)">{{p.name}}</a></li>
-                        <li ng-repeat-end class=""></li>
-                    </ul>
+                <div class="form-group">
+                    <div class="btn-group weapon-group" id="primary-group">
+                        <button type="button" ng-disabled="!isKeySelected()" class="btn btn-default"><span>{{scriptCollection[selectedKey].primary.name || "Primary Weapons"}}</span></button>
+                        <button type="button" ng-disabled="!isKeySelected()" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a ng-click="primarySelected()">&nbsp;</a></li>
+                            <li ng-repeat-start="group in primaryDropDownValues.primary" class="dropdown-header">{{group.name}}</li>
+                            <li ng-repeat="p in group.items"><a ng-click="primarySelected(p)">{{p.name}}</a></li>
+                            <li ng-repeat-end class=""></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="form-group">
-                <div class="btn-group" id="secondary-group">
-                    <button type="button" ng-disabled="!isKeySelected()" class="btn btn-default"><span>{{scriptCollection[selectedKey].secondary.name || "Secondary Weapons"}}</span></button>
-                    <button type="button" ng-disabled="!isKeySelected()" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="caret"></span>
-                        <span class="sr-only">Toggle Dropdown</span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a ng-click="secondarySelected()">&nbsp;</a></li>
-                        <li ng-repeat="s in secondaryDropDownValues.items"><a ng-click="secondarySelected(s)"><img style="height: 14px" src="images/{{ s.img }}"/>{{s.name}}</a></li>
-                    </ul>
-                </div>
+                    <div class="btn-group weapon-group" id="secondary-group">
+                        <button type="button" ng-disabled="!isKeySelected()" class="btn btn-default"><span>{{scriptCollection[selectedKey].secondary.name || "Secondary Weapons"}}</span></button>
+                        <button type="button" ng-disabled="!isKeySelected()" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a ng-click="secondarySelected()">&nbsp;</a></li>
+                            <li ng-repeat="s in secondaryDropDownValues.items"><a ng-click="secondarySelected(s)"><img style="height: 14px" src="images/{{ s.img }}"/>{{s.name}}</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="form-group">
                 <div ng-repeat="g in grenades" class="checkbox">

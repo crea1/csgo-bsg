@@ -57,3 +57,12 @@ http://code.tutsplus.com/tutorials/creating-a-keyboard-with-css-and-jquery--net-
 
 }
 /* keyboard end */
+
+
+.weapon-group {
+    width: 100%;
+}
+
+.weapon-group>.btn:first-child, .weapon-group .dropdown-menu {
+    width: 80%;
+}
