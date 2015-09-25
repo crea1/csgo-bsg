@@ -52,7 +52,7 @@
           "group": "SMG"
         },
         "mac10": {
-          "name": "MAC-10",
+          "name": "MP9 / MAC-10",
           "bindname": [
             "mac10",
             "mp9"
