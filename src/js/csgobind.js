@@ -16,7 +16,7 @@ var app = angular.module('csgoBindApp', []);
             $http.get('data/secondary_combined.json').success(function(data) {
                 $scope.secondaryDropDownValues = data;
             });
-            $http.get('data/grenades.json').success(function(data) {
+            $http.get('data/grenades_combined.json').success(function(data) {
                 $scope.grenades = [];
                 angular.forEach(data.grenades, function(grenades){
                     $scope.grenades.push(grenades);
@@ -50,7 +50,9 @@ var app = angular.module('csgoBindApp', []);
                     if (keyBindObject.grenades) {
                         angular.forEach($scope.grenades, function(grenade) {
                             if (keyBindObject.grenades[grenade.id]) {
-                                buyScript += "buy " + grenade.bindname + ";";
+                                for (var k = 0; k < grenade.bindname.length; k++) {
+                                    buyScript += "buy " + grenade.bindname[k] + ";";
+                                }
                             }
                         });
                     }

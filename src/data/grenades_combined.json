@@ -1,0 +1,53 @@
+{
+  "grenades": {
+    "hegrenade": {
+      "id": "he",
+      "name": "High Explosive Grenade",
+      "bindname": [
+        "hegrenade"
+      ],
+      "img": "he_b.png"
+    },
+    "flashbang1": {
+      "id": "flashbang1",
+      "name": "Flashbang",
+      "bindname": [
+        "flashbang"
+      ],
+      "img": "flashbang_b.png"
+    },
+    "flashbang2": {
+      "id": "flashbang2",
+      "name": "Flashbang",
+      "bindname": [
+        "flashbang"
+      ],
+      "img": "flashbang_b.png"
+    },
+    "decoy": {
+      "id": "decoy",
+      "name": "Decoy Grenade",
+      "bindname": [
+        "decoy"
+      ],
+      "img": "decoy_b.png"
+    },
+    "incgrenade": {
+      "id": "incendiary",
+      "name": "Incendiary Grenade / Molotov",
+      "bindname": [
+        "incgrenade",
+        "molotov"
+      ],
+      "img": "incendiary_b.png"
+    },
+    "smokegrenade": {
+      "id": "smoke",
+      "name": "Smoke Grenade",
+      "bindname": [
+        "smokegrenade"
+      ],
+      "img": "smoke_b.png"
+    }
+  }
+}
