@@ -10,7 +10,11 @@
             "sawedoff"
           ],
           "group": "Heavy",
-          "img": "mag7_b.png"
+          "img": "mag7_b.png",
+          "cost": {
+            "terrorist": "1200",
+            "ct": "1800"
+          }
         },
         "nova": {
           "name": "Nova",
@@ -18,7 +22,11 @@
             "nova"
           ],
           "group": "Heavy",
-          "img": "nova_b.png"
+          "img": "nova_b.png",
+          "cost": {
+            "terrorist": "1200",
+            "ct": "1200"
+          }
         },
         "xm1014": {
           "name": "XM1014",
@@ -26,7 +34,11 @@
             "xm1014"
           ],
           "group": "Heavy",
-          "img": "xm1014_b.png"
+          "img": "xm1014_b.png",
+          "cost": {
+            "terrorist": "2000",
+            "ct": "2000"
+          }
         },
         "m249": {
           "name": "M249",
@@ -34,7 +46,11 @@
             "m249"
           ],
           "group": "Heavy",
-          "img": "m249_b.png"
+          "img": "m249_b.png",
+          "cost": {
+            "terrorist": "5200",
+            "ct": "5200"
+          }
         },
         "negev": {
           "name": "Negev",
@@ -42,7 +58,11 @@
             "negev"
           ],
           "group": "Heavy",
-          "img": "negev_b.png"
+          "img": "negev_b.png",
+          "cost": {
+            "terrorist": "5700",
+            "ct": "5700"
+          }
         }
       }
     },
@@ -55,7 +75,11 @@
             "bizon"
           ],
           "group": "SMG",
-          "img": "bizon_b.png"
+          "img": "bizon_b.png",
+          "cost": {
+            "terrorist": "1400",
+            "ct": "1400"
+          }
         },
         "mac10": {
           "name": "MP9 / MAC-10",
@@ -64,7 +88,11 @@
             "mp9"
           ],
           "group": "SMG",
-          "img": "mp9_b.png"
+          "img": "mp9_b.png",
+          "cost": {
+            "terrorist": "1050",
+            "ct": "1250"
+          }
         },
         "mp7": {
           "name": "MP7",
@@ -72,7 +100,11 @@
             "mp7"
           ],
           "group": "SMG",
-          "img": "mp7_b.png"
+          "img": "mp7_b.png",
+          "cost": {
+            "terrorist": "1700",
+            "ct": "1700"
+          }
         },
         "p90": {
           "name": "P90",
@@ -80,7 +112,11 @@
             "p90"
           ],
           "group": "SMG",
-          "img": "p90_b.png"
+          "img": "p90_b.png",
+          "cost": {
+            "terrorist": "2350",
+            "ct": "2350"
+          }
         },
         "ump45": {
           "name": "UMP-45",
@@ -88,7 +124,11 @@
             "ump45"
           ],
           "group": "SMG",
-          "img": "ump45_b.png"
+          "img": "ump45_b.png",
+          "cost": {
+            "terrorist": "1200",
+            "ct": "1200"
+          }
         }
       }
     },
@@ -102,7 +142,11 @@
             "ak47"
           ],
           "group": "Rifles",
-          "img": "m4a1_b.png"
+          "img": "m4a1_b.png",
+          "cost": {
+            "terrorist": "2700",
+            "ct": "3100"
+          }
         },
         "aug": {
           "name": "AUG / SG 553",
@@ -111,7 +155,11 @@
             "sg556"
           ],
           "group": "Rifles",
-          "img": "aug_b.png"
+          "img": "aug_b.png",
+          "cost": {
+            "terrorist": "3000",
+            "ct": "3300"
+          }
         },
         "famas": {
           "name": "Famas / Galil AR",
@@ -120,7 +168,11 @@
             "galilar"
           ],
           "group": "Rifles",
-          "img": "famas_b.png"
+          "img": "famas_b.png",
+          "cost": {
+            "terrorist": "2000",
+            "ct": "2250"
+          }
         },
         "awp": {
           "name": "AWP",
@@ -128,7 +180,11 @@
             "awp"
           ],
           "group": "Rifles",
-          "img": "awp_b.png"
+          "img": "awp_b.png",
+          "cost": {
+            "terrorist": "4750",
+            "ct": "4750"
+          }
         },
         "g3sg1": {
           "name": "SCAR-20/ G3SG1",
@@ -137,7 +193,11 @@
             "g3sg1"
           ],
           "group": "Rifles",
-          "img": "scar20_b.png"
+          "img": "scar20_b.png",
+          "cost": {
+            "terrorist": "5000",
+            "ct": "5000"
+          }
         },
         "ssg08": {
           "name": "SSG 08",
@@ -145,7 +205,11 @@
             "ssg08"
           ],
           "group": "Rifles",
-          "img": "ssg08_b.png"
+          "img": "ssg08_b.png",
+          "cost": {
+            "terrorist": "1700",
+            "ct": "1700"
+          }
         }
       }
     }

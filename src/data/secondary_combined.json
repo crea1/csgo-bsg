@@ -4,27 +4,47 @@
     "glock": {
       "name": "P2000 / USP-S / Glock-18",
       "bindname": ["glock", "hkp2000"],
-      "img": "glock_b.png"
+      "img": "glock_b.png",
+      "cost": {
+        "terrorist": "200",
+        "ct": "200"
+      }
     },
     "elite": {
       "name": "Dual Berettas",
       "bindname": ["elite"],
-      "img": "dualelite_b.png"
+      "img": "dualelite_b.png",
+      "cost": {
+        "terrorist": "500",
+        "ct": "500"
+      }
     },
     "p250": {
       "name": "P250",
       "bindname": ["p250"],
-      "img": "p250_b.png"
+      "img": "p250_b.png",
+      "cost": {
+        "terrorist": "300",
+        "ct": "300"
+      }
     },
     "tec9": {
       "name": "Five-SeveN / Tec-9 / CZ75-Auto",
       "bindname": ["fn57", "tec9"],
-      "img": "fiveseven_b.png"
+      "img": "fiveseven_b.png",
+      "cost": {
+        "terrorist": "500",
+        "ct": "500"
+      }
     },
     "deagle": {
       "name": "Desert Eagle",
       "bindname": ["deagle"],
-      "img": "deagle_b.png"
+      "img": "deagle_b.png",
+      "cost": {
+        "terrorist": "700",
+        "ct": "700"
+      }
     }
   }
 }

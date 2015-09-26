@@ -4,25 +4,41 @@
       "id": "kevlar",
       "name": "Kevlar",
       "bindname": "vest",
-      "img": "vest_b.png"
+      "img": "vest_b.png",
+      "cost": {
+        "terrorist": "650",
+        "ct": "650"
+      }
     },
     "vesthelm": {
       "id": "kevlarhelm",
       "name": "Kevlar + Helmet",
       "bindname": "vesthelm",
-      "img": "vesthelm_b.png"
+      "img": "vesthelm_b.png",
+      "cost": {
+        "terrorist": "1000",
+        "ct": "1000"
+      }
     },
     "defuser": {
       "id": "defuse",
       "name": "Defuse Kit",
       "bindname": "defuser",
-      "img": "defuser_b.png"
+      "img": "defuser_b.png",
+      "cost": {
+        "terrorist": "0",
+        "ct": "400"
+      }
     },
     "taser": {
       "id": "taser",
       "name": "Zeus x27",
       "bindname": "taser",
-      "img": "taser_b.png"
+      "img": "taser_b.png",
+      "cost": {
+        "terrorist": "100",
+        "ct": "100"
+      }
     }
   }
 }

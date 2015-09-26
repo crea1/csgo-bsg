@@ -6,7 +6,11 @@
       "bindname": [
         "hegrenade"
       ],
-      "img": "he_b.png"
+      "img": "he_b.png",
+      "cost": {
+        "terrorist": "300",
+        "ct": "300"
+      }
     },
     "flashbang1": {
       "id": "flashbang1",
@@ -14,7 +18,11 @@
       "bindname": [
         "flashbang"
       ],
-      "img": "flashbang_b.png"
+      "img": "flashbang_b.png",
+      "cost": {
+        "terrorist": "200",
+        "ct": "200"
+      }
     },
     "flashbang2": {
       "id": "flashbang2",
@@ -22,7 +30,11 @@
       "bindname": [
         "flashbang"
       ],
-      "img": "flashbang_b.png"
+      "img": "flashbang_b.png",
+      "cost": {
+        "terrorist": "200",
+        "ct": "200"
+      }
     },
     "decoy": {
       "id": "decoy",
@@ -30,7 +42,11 @@
       "bindname": [
         "decoy"
       ],
-      "img": "decoy_b.png"
+      "img": "decoy_b.png",
+      "cost": {
+        "terrorist": "50",
+        "ct": "50"
+      }
     },
     "incgrenade": {
       "id": "incendiary",
@@ -39,7 +55,11 @@
         "incgrenade",
         "molotov"
       ],
-      "img": "incendiary_b.png"
+      "img": "incendiary_b.png",
+      "cost": {
+        "terrorist": "400",
+        "ct": "600"
+      }
     },
     "smokegrenade": {
       "id": "smoke",
@@ -47,7 +67,11 @@
       "bindname": [
         "smokegrenade"
       ],
-      "img": "smoke_b.png"
+      "img": "smoke_b.png",
+      "cost": {
+        "terrorist": "300",
+        "ct": "300"
+      }
     }
   }
 }
