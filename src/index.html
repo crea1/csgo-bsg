@@ -48,7 +48,7 @@
 
     <div class="row" ng-controller="bindController as bind">
         <div class="col-md-4">
-            <ul id="keyboard">
+            <ul class="keyboard">
                 <li class="symbol got-configuration">NL</li>
                 <li ng-click="onKeyClick('kp_slash')" id="kp_slash"  class="symbol              got-configuration-{{ hasConfiguration('kp_slash') }}">/</li>
                 <li ng-click="onKeyClick('kp_multiply')" id="kp_multiply" class="symbol         got-configuration-{{ hasConfiguration('kp_multiply') }}">*</li>
@@ -66,7 +66,12 @@
                 <li ng-click="onKeyClick('kp_enter')" id="kp_enter"   class="symbol lastitem kp_enter  got-configuration-{{ hasConfiguration('kp_enter') }}">Ent</li>
                 <li ng-click="onKeyClick('kp_ins')" id="kp_ins"     class="symbol firstitem kp_zero  got-configuration-{{ hasConfiguration('kp_ins') }}">0</li>
                 <li ng-click="onKeyClick('kp_del')" id="kp_del"     class="symbol                got-configuration-{{ hasConfiguration('kp_del') }}">.</li>
-
+            </ul>
+            <ul class="keyboard">
+                <li ng-click="onKeyClick('uparrow')" id="uparrow" class="symbol lastitem skipone got-configuration-{{ hasConfiguration('uparrow') }}">&#x2191;</li>
+                <li ng-click="onKeyClick('leftarrow')" id="leftarrow" class="symbol firstitem got-configuration-{{ hasConfiguration('leftarrow') }}">&#x2190;</li>
+                <li ng-click="onKeyClick('downarrow')" id="downarrow" class="symbol got-configuration-{{ hasConfiguration('downarrow') }}">&#x2193;</li>
+                <li ng-click="onKeyClick('rightarrow')" id="rightarrow" class="symbol  lastitem  got-configuration-{{ hasConfiguration('rightarrow') }}">&#x2192;</li>
             </ul>
         </div>
         <div class="col-md-4">

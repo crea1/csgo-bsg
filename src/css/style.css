@@ -5,13 +5,13 @@ body {
 /* keyboard
 http://code.tutsplus.com/tutorials/creating-a-keyboard-with-css-and-jquery--net-5774
 */
-#keyboard {
+.keyboard {
     margin: 0;
     padding: 0;
     list-style: none;
     width: 180px;
 }
-#keyboard li {
+.keyboard li {
     float: left;
     margin: 0 5px 5px 0;
     width: 40px;
@@ -30,15 +30,18 @@ http://code.tutsplus.com/tutorials/creating-a-keyboard-with-css-and-jquery--net-
 .firstitem {
     clear: left;
 }
-#keyboard .kp_zero {
+.skipone {
+    margin-left: 45px !important;
+}
+.keyboard .kp_zero {
     width: 85px;
 }
-#keyboard .kp_enter, #keyboard .kp_plus {
+.keyboard .kp_enter, .keyboard .kp_plus {
     height: 85px;
     float:right;
     line-height: 85px
 }
-#keyboard li:hover {
+.keyboard li:hover {
     position: relative;
     top: 1px;
     left: 1px;
