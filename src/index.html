@@ -80,7 +80,7 @@
                         <ul class="dropdown-menu" aria-labelledby="primary-group">
                             <li><a ng-click="primarySelected()">&nbsp;</a></li>
                             <li ng-repeat-start="group in primaryDropDownValues.primary" class="dropdown-header">{{group.name}}</li>
-                            <li ng-repeat="p in group.items"><a ng-click="primarySelected(p)">{{p.name}}</a></li>
+                            <li ng-repeat="p in group.items"><a ng-click="primarySelected(p)"><img style="height: 14px" src="images/{{ p.img }}"/>{{p.name}}</a></li>
                             <li ng-repeat-end class=""></li>
                         </ul>
                     </div>

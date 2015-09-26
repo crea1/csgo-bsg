@@ -9,35 +9,40 @@
             "mag7",
             "sawedoff"
           ],
-          "group": "Heavy"
+          "group": "Heavy",
+          "img": "mag7_b.png"
         },
         "nova": {
           "name": "Nova",
           "bindname": [
             "nova"
           ],
-          "group": "Heavy"
+          "group": "Heavy",
+          "img": "nova_b.png"
         },
         "xm1014": {
           "name": "XM1014",
           "bindname": [
             "xm1014"
           ],
-          "group": "Heavy"
+          "group": "Heavy",
+          "img": "xm1014_b.png"
         },
         "m249": {
           "name": "M249",
           "bindname": [
             "m249"
           ],
-          "group": "Heavy"
+          "group": "Heavy",
+          "img": "m249_b.png"
         },
         "negev": {
           "name": "Negev",
           "bindname": [
             "negev"
           ],
-          "group": "Heavy"
+          "group": "Heavy",
+          "img": "negev_b.png"
         }
       }
     },
@@ -49,7 +54,8 @@
           "bindname": [
             "bizon"
           ],
-          "group": "SMG"
+          "group": "SMG",
+          "img": "bizon_b.png"
         },
         "mac10": {
           "name": "MP9 / MAC-10",
@@ -57,28 +63,32 @@
             "mac10",
             "mp9"
           ],
-          "group": "SMG"
+          "group": "SMG",
+          "img": "mp9_b.png"
         },
         "mp7": {
           "name": "MP7",
           "bindname": [
             "mp7"
           ],
-          "group": "SMG"
+          "group": "SMG",
+          "img": "mp7_b.png"
         },
         "p90": {
           "name": "P90",
           "bindname": [
             "p90"
           ],
-          "group": "SMG"
+          "group": "SMG",
+          "img": "p90_b.png"
         },
         "ump45": {
           "name": "UMP-45",
           "bindname": [
             "ump45"
           ],
-          "group": "SMG"
+          "group": "SMG",
+          "img": "ump45_b.png"
         }
       }
     },
@@ -91,7 +101,8 @@
             "m4a1",
             "ak47"
           ],
-          "group": "Rifles"
+          "group": "Rifles",
+          "img": "m4a1_b.png"
         },
         "aug": {
           "name": "AUG / SG 553",
@@ -99,7 +110,8 @@
             "aug",
             "sg556"
           ],
-          "group": "Rifles"
+          "group": "Rifles",
+          "img": "aug_b.png"
         },
         "famas": {
           "name": "Famas / Galil AR",
@@ -107,14 +119,16 @@
             "famas",
             "galilar"
           ],
-          "group": "Rifles"
+          "group": "Rifles",
+          "img": "famas_b.png"
         },
         "awp": {
           "name": "AWP",
           "bindname": [
             "awp"
           ],
-          "group": "Rifles"
+          "group": "Rifles",
+          "img": "awp_b.png"
         },
         "g3sg1": {
           "name": "SCAR-20/ G3SG1",
@@ -122,14 +136,16 @@
             "scar20",
             "g3sg1"
           ],
-          "group": "Rifles"
+          "group": "Rifles",
+          "img": "scar20_b.png"
         },
         "ssg08": {
           "name": "SSG 08",
           "bindname": [
             "ssg08"
           ],
-          "group": "Rifles"
+          "group": "Rifles",
+          "img": "ssg08_b.png"
         }
       }
     }
