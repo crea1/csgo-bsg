@@ -116,26 +116,26 @@ var app = angular.module('csgoBindApp', []);
                 }
 
                 if (jQuery.isEmptyObject($scope.scriptCollection[bindname])) {
-                    console.log("Empty object");
+                    //console.log("Empty object");
                     return false;
                 } else {
                     var primary = $scope.scriptCollection[bindname].primary;
                     var secondary = $scope.scriptCollection[bindname].secondary;
 
                     if (primary && !jQuery.isEmptyObject(primary)) {
-                        console.log("found primary");
+                        //console.log("found primary");
                         return true;
                     } else if (secondary && !jQuery.isEmptyObject(secondary)) {
-                        console.log("found secondary");
+                        //console.log("found secondary");
                         return true;
                     } else if (hasGrenades($scope.scriptCollection[bindname].grenades)) {
-                        console.log("hasGrenades");
+                        //console.log("hasGrenades");
                         return true;
                     } else if (hasEquipment($scope.scriptCollection[bindname].equipment)) {
-                        console.log("hasEquioment");
+                        //console.log("hasEquioment");
                         return true;
                     } else {
-                        console.log("else " + bindname);
+                        //console.log("else " + bindname);
                         return false;
                     }
                 }
@@ -165,3 +165,4 @@ var app = angular.module('csgoBindApp', []);
         }
     ]);
 
+var client = new ZeroClipboard( document.getElementById("copy-button") );
