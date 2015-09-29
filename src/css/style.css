@@ -69,3 +69,7 @@ http://code.tutsplus.com/tutorials/creating-a-keyboard-with-css-and-jquery--net-
 .weapon-group>.btn:first-child, .weapon-group .dropdown-menu {
     width: 80%;
 }
+
+.btn.zeroclipboard-is-hover, .btn.zeroclipboard-is-active {
+    background-color: #d4d4d4;
+}
