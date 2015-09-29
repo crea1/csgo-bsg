@@ -43,6 +43,12 @@ gulp.task('data', ['clean'], function() {
         .pipe(gulp.dest(BUILD_DIR + 'data/'));
 });
 
+// Move images
+gulp.task('images', ['clean'], function() {
+    return gulp.src('src/images/**')
+        .pipe(gulp.dest(BUILD_DIR + 'images/'));
+});
+
 // Move bower components
 // TODO change to only grab relevant files
 gulp.task('bower_components', ['clean'], function() {
@@ -83,4 +89,4 @@ gulp.task('release', ['default'], function () {
 gulp.task('reload', ['connect', 'watch']);
 
 // Default, builds project 
-gulp.task('default', ['js', 'html', 'styles','data', 'bower_components']);
+gulp.task('default', ['js', 'html', 'styles','data', 'bower_components', 'images']);
