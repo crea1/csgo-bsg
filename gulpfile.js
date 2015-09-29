@@ -11,6 +11,15 @@ var zip = require('gulp-zip');
 var BUILD_DIR = 'build/';
 var DIST_DIR = 'dist/';
 
+function prepend(str) {
+  if (str < 10) {
+     return "0" + str;
+  }
+  return str;
+};
+var d = new Date();
+var CURRENT_DATE = d.getFullYear() + "" + prepend(d.getMonth()+ 1) + "" + d.getDate() + "" + prepend(d.getHours()) + "" + prepend(d.getMinutes()) + "" + prepend(d.getSeconds());
+
 // Remove build folder
 gulp.task('clean', function() {
     return del(['build/', 'dist'])
@@ -81,7 +90,7 @@ gulp.task('watch', function () {
 
 gulp.task('release', ['default'], function () {
     return gulp.src('build/**')
-        .pipe(zip('csgo-bsg.zip'))
+        .pipe(zip('csgo-bsg' + CURRENT_DATE +'.zip'))
         .pipe(gulp.dest(DIST_DIR));
 });
 
