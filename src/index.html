@@ -124,6 +124,7 @@
             <button id="copy-button" class="btn btn-default" data-clipboard-text="{{ generateScript() }}" title="Click to copy script">
                 <span class="glyphicon glyphicon-copy" aria-hidden="true"></span> Copy to clipboard
             </button>
+            <span id="copied" class="glyphicon glyphicon-ok" aria-hidden="true" style="opacity: 0"></span>
         </div>
         <div class="row">
             <div class="col-md-12">
@@ -136,9 +137,9 @@
 
 <script src="bower_components/zeroclipboard/dist/ZeroClipboard.min.js"></script>
 <script src="bower_components/angularjs/angular.min.js"></script>
-<script src="js/csgobind.js"></script>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="js/csgobind.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>

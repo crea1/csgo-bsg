@@ -165,4 +165,13 @@ var app = angular.module('csgoBindApp', []);
         }
     ]);
 
-var client = new ZeroClipboard( document.getElementById("copy-button") );
+var client = new ZeroClipboard(document.getElementById("copy-button"));
+client.on("ready", function (readyEvent) {
+    client.on("aftercopy", function (event) {
+        $("#copied").animate({opacity: 1}, 200).animate({opacity: 0}, 1500);
+    });
+});
+client.on('error', function (event) {
+    event.target.style.display = "none";
+    ZeroClipboard.destroy();
+});
