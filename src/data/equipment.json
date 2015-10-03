@@ -36,8 +36,8 @@
       "bindname": "taser",
       "img": "taser_b.png",
       "cost": {
-        "terrorist": "100",
-        "ct": "100"
+        "terrorist": "200",
+        "ct": "200"
       }
     }
   }
