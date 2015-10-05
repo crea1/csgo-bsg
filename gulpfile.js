@@ -16,13 +16,13 @@ function prepend(str) {
      return "0" + str;
   }
   return str;
-};
+}
 var d = new Date();
 var CURRENT_DATE = d.getFullYear() + "" + prepend(d.getMonth()+ 1) + "" + d.getDate() + "" + prepend(d.getHours()) + "" + prepend(d.getMinutes()) + "" + prepend(d.getSeconds());
 
 // Remove build folder
 gulp.task('clean', function() {
-    return del(['build/', 'dist'])
+    return del(['build/', 'dist']);
 });
 
 // Minify javascripts

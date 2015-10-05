@@ -161,7 +161,7 @@ var app = angular.module('csgoBindApp', []);
                     $scope.scriptCollection[$scope.selectedKey]['secondary'] = null;
                 }
 
-            }
+            };
         }
     ]);
 
