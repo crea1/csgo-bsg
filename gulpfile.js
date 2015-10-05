@@ -35,8 +35,10 @@ gulp.task('js', ['clean'], function() {
 
 // Move html files and update references 
 gulp.task('html', ['clean'], function() {
+    var pkg  = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
     return gulp.src('src/index.html')
         .pipe(replace('js/csgobind.js', 'js/csgobind.min.js'))
+        .pipe(replace('buildVersion', pkg.version))
         .pipe(gulp.dest(BUILD_DIR));
 });
 
