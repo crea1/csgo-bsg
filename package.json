@@ -1,6 +1,6 @@
 {
   "name": "csgo-bsg",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "csgo-bsg",
   "main": "gulpfile.js",
   "devDependencies": {
