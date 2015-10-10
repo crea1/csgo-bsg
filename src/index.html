@@ -20,30 +20,14 @@
 
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-default navbar-static-top">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">QuickyBuy</a>
+            <a class="navbar-brand" href="#">CS:GO Buyscript generator</a>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-        <!--/.nav-collapse -->
     </div>
 </nav>
 <div class="container">
-    <h1>hi</h1>
 
     <div class="row" ng-controller="bindController as bind">
         <div class="col-md-3">
@@ -126,20 +110,12 @@
             </button>
             <span id="copied" class="glyphicon glyphicon-ok" aria-hidden="true" style="opacity: 0"></span>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                Debug scriptCollection
-                <pre>{{ scriptCollection | json }}</pre>
-            </div>
-        </div>
     </div>
 </div>
-<footer>
-    <div class="footer" id="footer">
-        <div class="container">
-            <div class="row">
-                <p class="text-center"><small>version buildVersion</small></p>
-            </div>
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <p class="text-center"><small>version buildVersion</small></p>
         </div>
     </div>
 </footer>
