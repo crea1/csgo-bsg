@@ -71,11 +71,23 @@ gulp.task('bower_components', ['clean'], function() {
         .pipe(gulp.dest(BUILD_DIR + 'bower_components/'));
 });
 
-// Update patch version
-gulp.task('update-version', ['clean'], function () {
+// Version updating
+gulp.task('version:pre', ['clean'], function () {
+    gulp.src(['./bower.json', './package.json'])
+        .pipe(bump({type: 'prerelease', preid : 'SNAPSHOT'}))
+        .pipe(gulp.dest('./'));
+    return gulp.src;
+});
+gulp.task('version:patch', ['clean'], function () {
     var newVersion = semver.inc(pkg.version, 'patch');
     gulp.src(['./bower.json', './package.json'])
         .pipe(bump({version: newVersion}))
+        .pipe(gulp.dest('./'));
+    return gulp.src;
+});
+gulp.task('version:minor', ['clean'], function () {
+    gulp.src(['./bower.json', './package.json'])
+        .pipe(bump({type: 'minor'}))
         .pipe(gulp.dest('./'));
     return gulp.src;
 });
@@ -107,7 +119,7 @@ gulp.task('release:dev', ['default'], function () {
         .pipe(gulp.dest(DIST_DIR));
 });
 
-gulp.task('release:prod', ['update-version', 'default'], function () {
+gulp.task('release:prod', ['version:patch', 'default'], function () {
     var pkg  = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
     return gulp.src('build/**')
         .pipe(zip('csgo-bsg-' + pkg.version +'.zip'))
