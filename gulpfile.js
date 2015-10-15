@@ -119,7 +119,7 @@ gulp.task('release:dev', ['default'], function () {
         .pipe(gulp.dest(DIST_DIR));
 });
 
-gulp.task('release:prod', ['version:patch', 'default'], function () {
+gulp.task('release:prod', ['default'], function () {
     var pkg  = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
     return gulp.src('build/**')
         .pipe(zip('csgo-bsg-' + pkg.version +'.zip'))
