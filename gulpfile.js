@@ -7,13 +7,15 @@ var del = require('del');
 var fs = require('fs');
 var rename = require('gulp-rename');
 var replace = require('gulp-replace');
-var semver = require('semver');
+var runSequence = require('run-sequence');
 var uglify = require('gulp-uglify');
 var zip = require('gulp-zip');
 
 var BUILD_DIR = 'build/';
 var DIST_DIR = 'dist/';
-var pkg  = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
+function pkg() {
+    return JSON.parse(fs.readFileSync('./package.json', 'utf8'));
+}
 
 function prepend(str) {
   if (str < 10) {
@@ -42,7 +44,7 @@ gulp.task('html', ['clean'], function() {
     return gulp.src('src/index.html')
         .pipe(replace('js/csgobind.js', 'js/csgobind.min.js?ver=' + CURRENT_DATE))
         .pipe(replace('css/style.css', 'css/style.css?ver=' + CURRENT_DATE))
-        .pipe(replace('buildVersion', pkg.version))
+        .pipe(replace('buildVersion', pkg().version))
         .pipe(gulp.dest(BUILD_DIR));
 });
 
@@ -79,11 +81,9 @@ gulp.task('version:pre', ['clean'], function () {
     return gulp.src;
 });
 gulp.task('version:patch', ['clean'], function () {
-    var newVersion = semver.inc(pkg.version, 'patch');
-    gulp.src(['./bower.json', './package.json'])
-        .pipe(bump({version: newVersion}))
+    return gulp.src(['./bower.json', './package.json'])
+        .pipe(bump({type: 'patch'}))
         .pipe(gulp.dest('./'));
-    return gulp.src;
 });
 gulp.task('version:minor', ['clean'], function () {
     gulp.src(['./bower.json', './package.json'])
@@ -119,11 +119,14 @@ gulp.task('release:dev', ['default'], function () {
         .pipe(gulp.dest(DIST_DIR));
 });
 
-gulp.task('release:prod', ['default'], function () {
-    var pkg  = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
-    return gulp.src('build/**')
-        .pipe(zip('csgo-bsg-' + pkg.version +'.zip'))
-        .pipe(gulp.dest(DIST_DIR));
+gulp.task('release:prod', function () {
+    runSequence('version:patch', 
+        'default',
+        function() {
+            return gulp.src('build/**')
+            .pipe(zip('csgo-bsg-' + pkg().version +'.zip'))
+            .pipe(gulp.dest(DIST_DIR));
+        });
 });
 
 // Run this for live reload when code is changed

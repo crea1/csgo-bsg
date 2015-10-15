@@ -13,7 +13,8 @@
     "gulp-rename": "~1.2.x",
     "gulp-scp2": "~0.2.x",
     "gulp-uglify": "~1.4.x",
-    "gulp-zip": "~3.0.x"
+    "gulp-zip": "~3.0.x",
+    "run-sequence": "~1.1.4"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
