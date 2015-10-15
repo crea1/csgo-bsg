@@ -135,7 +135,7 @@ gulp.task('release:prod', function () {
 });
 
 // Run this for live reload when code is changed
-gulp.task('reload', ['connect', 'watch']);
+gulp.task('reload', ['connect', 'watch', 'default']);
 
 // Default, builds project 
 gulp.task('default', ['js', 'html', 'styles','data', 'bower_components', 'images']);
