@@ -102,18 +102,18 @@ gulp.task('version:minor', ['clean'], function () {
 
 gulp.task('connect', function() {
     connect.server({
-        root: 'src',
+        root: 'build',
         livereload: true
     });
 });
 
-gulp.task('html-connect', function () {
-    gulp.src(['./src/*.html'])
+gulp.task('html-connect', ['default'], function () {
+    gulp.src(['./build/*.html'])
         .pipe(connect.reload());
 });
 
 gulp.task('watch', function () {
-    gulp.watch(['./src/*.html', './src/css/*.css', './src/js/*.js'], ['html-connect']);
+    gulp.watch(['./src/*.html', './src/scss/*.scss', './src/js/*.js'], ['html-connect']);
 });
  
 //--- [END] Gulp connect live reload ---//
