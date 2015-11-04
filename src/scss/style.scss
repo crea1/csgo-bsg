@@ -3,6 +3,8 @@
 /* keyboard
 http://code.tutsplus.com/tutorials/creating-a-keyboard-with-css-and-jquery--net-5774
 */
+$footer-height: 30px;
+
 .keyboard {
   margin: 0;
   padding: 0;
@@ -71,10 +73,18 @@ http://code.tutsplus.com/tutorials/creating-a-keyboard-with-css-and-jquery--net-
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 30px;
+  height: $footer-height;
   background-color: $gray-lighter;
   color: $gray;
   font-size: $font-size-small;
+}
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: $footer-height;
 }
 .footer-info {
   margin: 6px 0;
