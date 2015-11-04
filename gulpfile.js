@@ -120,7 +120,7 @@ gulp.task('watch', function () {
 
 gulp.task('release:dev', ['default'], function () {
     return gulp.src('build/**')
-        .pipe(zip('csgo-bsg-' + pkg.version +'-'+ CURRENT_DATE + '.zip'))
+        .pipe(zip('csgo-bsg-' + pkg().version +'-'+ CURRENT_DATE + '.zip'))
         .pipe(gulp.dest(DIST_DIR));
 });
 
