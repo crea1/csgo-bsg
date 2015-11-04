@@ -29,6 +29,13 @@ gulp reload
 ```
 
 ### Release
+
+This builds the project in build folder, and makes a zip file located under dist folder.
+
 ```bash
-gulp release
+gulp release:dev
+# or
+gulp release:prod
+# Prepare next development iteration
+gulp version:pre
 ```
