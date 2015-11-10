@@ -42,7 +42,7 @@ gulp.task('js', ['clean'], function() {
 
 // Move html files and update references 
 gulp.task('html', ['clean'], function() {
-    return gulp.src('src/index.html')
+    return gulp.src(['src/index.html','src/favicon.ico'])
         .pipe(replace('js/csgobind.js', 'js/csgobind.min.js?ver=' + CURRENT_DATE))
         .pipe(replace('css/style.css', 'css/style.css?ver=' + CURRENT_DATE))
         .pipe(replace('buildVersion', pkg().version))
