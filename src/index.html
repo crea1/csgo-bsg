@@ -30,6 +30,7 @@
 
     <div class="row" ng-controller="bindController as bind">
         <div class="col-md-3">
+            <h3>1. Choose key</h3>
             <ul class="keyboard">
                 <li class="symbol got-configuration">NL</li>
                 <li ng-click="onKeyClick('kp_slash')" id="kp_slash"  class="symbol              got-configuration-{{ hasConfiguration('kp_slash') }}">/</li>
@@ -57,6 +58,7 @@
             </ul>
         </div>
         <div class="col-md-4">
+            <h3>2. Select item</h3>
             <form>
                 <div class="form-group">
                     <div class="dropdown weapon-group">
@@ -103,11 +105,21 @@
             </form>
         </div>
         <div class="col-md-5">
+            <h3>3. Your script</h3>
             <pre>{{generateScript()}}</pre>
             <button id="copy-button" class="btn btn-default" data-clipboard-text="{{ generateScript() }}" title="Click to copy script">
                 <span class="glyphicon glyphicon-copy" aria-hidden="true"></span> Copy to clipboard
             </button>
             <span id="copied" class="glyphicon glyphicon-ok" aria-hidden="true" style="opacity: 0"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>4. I got my buyscript. Now what?</h3>
+            <p>Copy the buyscript, and paste it into a new empty text file, using notepad or a similar text editor.</p>
+            <p>Save it as autoexec.cfg and put it insisde your CS:GO installation folder, e.g.,<br />
+                <code>C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\csgo\cfg</code>
+            </p>
         </div>
     </div>
 </div>
