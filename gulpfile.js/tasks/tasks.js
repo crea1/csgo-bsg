@@ -32,7 +32,7 @@ gulp.task('clean', function() {
 });
 
 // Minify javascripts
-gulp.task('js', ['clean'], function() {
+gulp.task('js', function() {
     return gulp.src('src/js/csgobind.js')
         .pipe(uglify({ mangle:true }))
         .pipe(rename({ extname: '.min.js' }))
@@ -40,7 +40,7 @@ gulp.task('js', ['clean'], function() {
 });
 
 // Move html files and update references 
-gulp.task('html', ['clean'], function() {
+gulp.task('html', function() {
     return gulp.src(['src/index.html','src/favicon.ico'])
         .pipe(replace('js/csgobind.js', 'js/csgobind.min.js?ver=' + CURRENT_DATE))
         .pipe(replace('css/style.css', 'css/style.css?ver=' + CURRENT_DATE))
@@ -49,37 +49,37 @@ gulp.task('html', ['clean'], function() {
 });
 
 // Move datafiles
-gulp.task('data', ['clean'], function() {
+gulp.task('data', function() {
     return gulp.src('src/data/*.json')
         .pipe(gulp.dest(BUILD_DIR + 'data/'));
 });
 
 // Move images
-gulp.task('images', ['clean'], function() {
+gulp.task('images', function() {
     return gulp.src('src/images/**')
         .pipe(gulp.dest(BUILD_DIR + 'images/'));
 });
 
 // Move bower components
 // TODO change to only grab relevant files
-gulp.task('bower_components', ['clean'], function() {
+gulp.task('bower_components', function() {
     return gulp.src('src/bower_components/**')
         .pipe(gulp.dest(BUILD_DIR + 'bower_components/'));
 });
 
 // Version updating
-gulp.task('version:pre', ['clean'], function () {
+gulp.task('version:pre', function () {
     gulp.src(['./bower.json', './package.json'])
         .pipe(bump({type: 'prerelease', preid : 'SNAPSHOT'}))
         .pipe(gulp.dest('./'));
     return gulp.src;
 });
-gulp.task('version:patch', ['clean'], function () {
+gulp.task('version:patch', function () {
     return gulp.src(['./bower.json', './package.json'])
         .pipe(bump({type: 'patch'}))
         .pipe(gulp.dest('./'));
 });
-gulp.task('version:minor', ['clean'], function () {
+gulp.task('version:minor', function () {
     gulp.src(['./bower.json', './package.json'])
         .pipe(bump({type: 'minor'}))
         .pipe(gulp.dest('./'));
@@ -127,4 +127,11 @@ gulp.task('release:prod', function () {
 gulp.task('reload', ['connect', 'watch', 'default']);
 
 // Default, builds project 
-gulp.task('default', ['js', 'html', 'styles','data', 'bower_components', 'images']);
+//gulp.task('default', ['js', 'html', 'styles','data', 'bower_components', 'images']);
+
+gulp.task('default', function() {
+    runSequence('clean',
+        ['js', 'html', 'styles','data', 'bower_components', 'images']
+    );
+});
+

@@ -3,7 +3,7 @@ var gulp   = require('gulp');
 var sass   = require('gulp-sass');
 
 // Compile sass files
-gulp.task('styles', ['clean'], function () {
+gulp.task('styles', function () {
     gulp.src('src/bower_components/bootstrap-sass/assets/fonts/**')
         .pipe(gulp.dest(config.build + '/fonts/'));
 
