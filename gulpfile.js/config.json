@@ -1,5 +1,10 @@
 {
     "src": "./src",
     "build": "./build",
-    "dist": "./dist"
+    "dist": "./dist",
+
+    "js": {
+        "src": "src/js/csgobind.js",
+        "build": "./build/js"
+    }
 }

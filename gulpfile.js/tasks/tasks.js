@@ -7,7 +7,6 @@ var fs = require('fs');
 var rename = require('gulp-rename');
 var replace = require('gulp-replace');
 var runSequence = require('run-sequence');
-var uglify = require('gulp-uglify');
 var zip = require('gulp-zip');
 
 var BUILD_DIR = 'build/';
@@ -24,14 +23,6 @@ function prepend(str) {
 }
 var d = new Date();
 var CURRENT_DATE = d.getFullYear() + "" + prepend(d.getMonth()+ 1) + "" + d.getDate() + "" + prepend(d.getHours()) + "" + prepend(d.getMinutes()) + "" + prepend(d.getSeconds());
-
-// Minify javascripts
-gulp.task('js', function() {
-    return gulp.src('src/js/csgobind.js')
-        .pipe(uglify({ mangle:true }))
-        .pipe(rename({ extname: '.min.js' }))
-        .pipe(gulp.dest(BUILD_DIR + 'js/'));
-});
 
 // Move html files and update references 
 gulp.task('html', function() {
