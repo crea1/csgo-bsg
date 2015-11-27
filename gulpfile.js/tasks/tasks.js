@@ -3,7 +3,6 @@
 var gulp = require('gulp');
 var bump = require('gulp-bump');
 var connect = require('gulp-connect');
-var del = require('del');
 var fs = require('fs');
 var rename = require('gulp-rename');
 var replace = require('gulp-replace');
@@ -25,11 +24,6 @@ function prepend(str) {
 }
 var d = new Date();
 var CURRENT_DATE = d.getFullYear() + "" + prepend(d.getMonth()+ 1) + "" + d.getDate() + "" + prepend(d.getHours()) + "" + prepend(d.getMinutes()) + "" + prepend(d.getSeconds());
-
-// Remove build folder
-gulp.task('clean', function() {
-    return del(['build/', 'dist']);
-});
 
 // Minify javascripts
 gulp.task('js', function() {
@@ -127,8 +121,6 @@ gulp.task('release:prod', function () {
 gulp.task('reload', ['connect', 'watch', 'default']);
 
 // Default, builds project 
-//gulp.task('default', ['js', 'html', 'styles','data', 'bower_components', 'images']);
-
 gulp.task('default', function() {
     runSequence('clean',
         ['js', 'html', 'styles','data', 'bower_components', 'images']
