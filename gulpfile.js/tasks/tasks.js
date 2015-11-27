@@ -10,7 +10,6 @@ var replace = require('gulp-replace');
 var runSequence = require('run-sequence');
 var uglify = require('gulp-uglify');
 var zip = require('gulp-zip');
-var sass = require('gulp-sass');
 
 var BUILD_DIR = 'build/';
 var DIST_DIR = 'dist/';
@@ -47,16 +46,6 @@ gulp.task('html', ['clean'], function() {
         .pipe(replace('css/style.css', 'css/style.css?ver=' + CURRENT_DATE))
         .pipe(replace('buildVersion', pkg().version))
         .pipe(gulp.dest(BUILD_DIR));
-});
-
-// Compile sass files
-gulp.task('styles', ['clean'], function () {
-    gulp.src('src/bower_components/bootstrap-sass/assets/fonts/**')
-        .pipe(gulp.dest(BUILD_DIR + 'fonts/'));
-
-    return gulp.src('src/scss/*.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest(BUILD_DIR + 'css/'));
 });
 
 // Move datafiles
