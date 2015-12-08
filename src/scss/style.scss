@@ -1,9 +1,38 @@
 @import "../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
-
 /* keyboard
 http://code.tutsplus.com/tutorials/creating-a-keyboard-with-css-and-jquery--net-5774
 */
 $footer-height: 30px;
+$light-green: #ACE0D5;
+$green: #B9CFD4;
+$light-purple: #AFAAB9;
+$dark-purple: #9C98A5;
+$light-red: #B48291;
+$dark-red: #A5243D;
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  background: $light-green; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient($light-green,$green, $light-purple); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient($light-green,$green, $light-purple); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient($light-green,$green, $light-purple); /* For Firefox 3.6 to 15 */
+  background: linear-gradient($light-green,$green, $light-purple); /* Standard syntax (must be last) */
+
+  /* Margin bottom by footer height */
+  margin-bottom: $footer-height;
+}
+.navbar-csgo {
+  background-color: #444;
+  color: $light-green;
+}
+.content {
+  background: rgba(255, 255, 255, .7);
+  border-radius: 10px;
+  margin-bottom: 60px;
+}
 
 .keyboard {
   margin: 0;
@@ -61,7 +90,10 @@ $footer-height: 30px;
 }
 /* keyboard end */
 
-
+#copy-button {
+  background-color: $dark-red;
+  color: $gray-lighter;
+}
 .weapon-group {
   width: 100%;
 }
@@ -74,18 +106,12 @@ $footer-height: 30px;
   bottom: 0;
   width: 100%;
   height: $footer-height;
-  background-color: $gray-lighter;
+  background-color: $dark-purple;
   color: $gray;
   font-size: $font-size-small;
 }
-html {
-  position: relative;
-  min-height: 100%;
-}
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: $footer-height;
-}
+
+
 .footer-info {
   margin: 6px 0;
 }
