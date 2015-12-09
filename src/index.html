@@ -106,7 +106,7 @@
         </div>
         <div class="col-md-5">
             <h3>3. Your script</h3>
-            <pre>{{generateScript()}}</pre>
+            <pre>{{generateScript() || "There is nothing here yet" }}</pre>
             <button id="copy-button" class="btn btn-default" data-clipboard-text="{{ generateScript() }}" title="Click to copy script">
                 <span class="glyphicon glyphicon-copy" aria-hidden="true"></span> Copy to clipboard
             </button>
