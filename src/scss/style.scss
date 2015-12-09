@@ -1,7 +1,5 @@
 @import "../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
-/* keyboard
-http://code.tutsplus.com/tutorials/creating-a-keyboard-with-css-and-jquery--net-5774
-*/
+
 $footer-height: 30px;
 $light-green: #ACE0D5;
 $green: #B9CFD4;
@@ -47,7 +45,6 @@ body {
   height: 40px;
   line-height: 40px;
   text-align: center;
-  /*background: #fff;*/
   border: 1px solid #888888;
   border-radius: 5px;
   -moz-border-radius: 5px;
@@ -62,13 +59,16 @@ body {
 .skipone {
   margin-left: 45px !important;
 }
+.symbol {
+  background: #fff;
+}
 .keyboard .kp_zero {
   width: 85px;
 }
 .keyboard .kp_enter, .keyboard .kp_plus {
   height: 85px;
   float:right;
-  line-height: 85px
+  line-height: 85px;
 }
 .keyboard li:hover {
   position: relative;
@@ -79,12 +79,12 @@ body {
 }
 
 .selected {
-  color: #00b3ee;
+  color: $dark-red;
   background-color: #d4d4d4 !important;
 }
 
 .got-configuration-true {
-  color: #0099ee;
+  color: $dark-red;
   background-color: #f0f0f0;
 
 }
