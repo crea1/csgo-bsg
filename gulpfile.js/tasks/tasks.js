@@ -2,7 +2,6 @@
 
 var gulp = require('gulp');
 var bump = require('gulp-bump');
-var connect = require('gulp-connect');
 var fs = require('fs');
 var rename = require('gulp-rename');
 var replace = require('gulp-replace');
@@ -24,7 +23,7 @@ function prepend(str) {
 var d = new Date();
 var CURRENT_DATE = d.getFullYear() + "" + prepend(d.getMonth()+ 1) + "" + d.getDate() + "" + prepend(d.getHours()) + "" + prepend(d.getMinutes()) + "" + prepend(d.getSeconds());
 
-// Move html files and update references 
+// Move html files and update references
 gulp.task('html', function() {
     return gulp.src(['src/index.html','src/favicon.ico'])
         .pipe(replace('js/csgobind.js', 'js/csgobind.min.js?ver=' + CURRENT_DATE))
@@ -54,10 +53,9 @@ gulp.task('bower_components', function() {
 
 // Version updating
 gulp.task('version:pre', function () {
-    gulp.src(['./bower.json', './package.json'])
+    return gulp.src(['./bower.json', './package.json'])
         .pipe(bump({type: 'prerelease', preid : 'SNAPSHOT'}))
         .pipe(gulp.dest('./'));
-    return gulp.src;
 });
 gulp.task('version:patch', function () {
     return gulp.src(['./bower.json', './package.json'])
@@ -65,32 +63,11 @@ gulp.task('version:patch', function () {
         .pipe(gulp.dest('./'));
 });
 gulp.task('version:minor', function () {
-    gulp.src(['./bower.json', './package.json'])
+    return gulp.src(['./bower.json', './package.json'])
         .pipe(bump({type: 'minor'}))
         .pipe(gulp.dest('./'));
-    return gulp.src;
 });
 
-
-//--- [START]  Gulp connect live reload ---//
-
-gulp.task('connect', function() {
-    connect.server({
-        root: 'build',
-        livereload: true
-    });
-});
-
-gulp.task('html-connect', ['default'], function () {
-    gulp.src(['./build/*.html'])
-        .pipe(connect.reload());
-});
-
-gulp.task('watch', function () {
-    gulp.watch(['./src/*.html', './src/scss/*.scss', './src/js/*.js'], ['html-connect']);
-});
- 
-//--- [END] Gulp connect live reload ---//
 
 gulp.task('release:dev', ['default'], function () {
     return gulp.src('build/**')
@@ -98,8 +75,20 @@ gulp.task('release:dev', ['default'], function () {
         .pipe(gulp.dest(DIST_DIR));
 });
 
-gulp.task('release:prod', function () {
-    runSequence('version:patch', 
+gulp.task('release:minor', function () {
+    runSequence('clean',
+        'version:minor',
+        'default',
+        function() {
+            return gulp.src('build/**')
+                .pipe(zip('csgo-bsg-' + pkg().version +'.zip'))
+                .pipe(gulp.dest(DIST_DIR));
+        });
+});
+
+gulp.task('release:patch', function () {
+    runSequence('clean',
+        'version:minor',
         'default',
         function() {
             return gulp.src('build/**')
@@ -108,13 +97,11 @@ gulp.task('release:prod', function () {
         });
 });
 
-// Run this for live reload when code is changed
-gulp.task('reload', ['connect', 'watch', 'default']);
 
-// Default, builds project 
+
+// Default, builds project
 gulp.task('default', function() {
     runSequence('clean',
         ['js', 'html', 'styles','data', 'bower_components', 'images']
     );
 });
-

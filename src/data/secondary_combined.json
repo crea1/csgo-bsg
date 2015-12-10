@@ -38,7 +38,7 @@
       }
     },
     "deagle": {
-      "name": "Desert Eagle",
+      "name": "Desert Eagle / R8 Revolver",
       "bindname": ["deagle"],
       "img": "deagle_b.png",
       "cost": {

@@ -33,7 +33,7 @@
     "taser": {
       "id": "taser",
       "name": "Zeus x27",
-      "bindname": "taser",
+      "bindname": "Taser",
       "img": "taser_b.png",
       "cost": {
         "terrorist": "200",

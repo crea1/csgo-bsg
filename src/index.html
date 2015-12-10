@@ -19,14 +19,14 @@
 
 </head>
 <body>
-<nav class="navbar navbar-default navbar-static-top">
+<nav class="navbar navbar-csgo navbar-static-top">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">CS:GO Buyscript generator</a>
+            <span class="navbar-brand">CS:GO Buyscript generator</span>
         </div>
     </div>
 </nav>
-<div class="container">
+<div class="container content">
 
     <div class="row" ng-controller="bindController as bind">
         <div class="col-md-3">
@@ -106,7 +106,7 @@
         </div>
         <div class="col-md-5">
             <h3>3. Your script</h3>
-            <pre>{{generateScript()}}</pre>
+            <pre>{{generateScript() || "There is nothing here yet" }}</pre>
             <button id="copy-button" class="btn btn-default" data-clipboard-text="{{ generateScript() }}" title="Click to copy script">
                 <span class="glyphicon glyphicon-copy" aria-hidden="true"></span> Copy to clipboard
             </button>
@@ -138,7 +138,9 @@
 <footer class="footer">
     <div class="container">
         <div class="row">
-            <p class="footer-info text-center">CS:GO Buyscript Generator <span>buildVersion</span></p>
+            <p class="footer-info text-center">
+                CS:GO Buyscript Generator <span>buildVersion</span> was made with &hearts;
+            </p>
         </div>
     </div>
 </footer>
