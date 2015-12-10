@@ -53,10 +53,9 @@ gulp.task('bower_components', function() {
 
 // Version updating
 gulp.task('version:pre', function () {
-    gulp.src(['./bower.json', './package.json'])
+    return gulp.src(['./bower.json', './package.json'])
         .pipe(bump({type: 'prerelease', preid : 'SNAPSHOT'}))
         .pipe(gulp.dest('./'));
-    return gulp.src;
 });
 gulp.task('version:patch', function () {
     return gulp.src(['./bower.json', './package.json'])
@@ -64,10 +63,9 @@ gulp.task('version:patch', function () {
         .pipe(gulp.dest('./'));
 });
 gulp.task('version:minor', function () {
-    gulp.src(['./bower.json', './package.json'])
+    return gulp.src(['./bower.json', './package.json'])
         .pipe(bump({type: 'minor'}))
         .pipe(gulp.dest('./'));
-    return gulp.src;
 });
 
 
@@ -77,8 +75,20 @@ gulp.task('release:dev', ['default'], function () {
         .pipe(gulp.dest(DIST_DIR));
 });
 
-gulp.task('release:prod', function () {
-    runSequence('version:patch',
+gulp.task('release:minor', function () {
+    runSequence('clean',
+        'version:minor',
+        'default',
+        function() {
+            return gulp.src('build/**')
+                .pipe(zip('csgo-bsg-' + pkg().version +'.zip'))
+                .pipe(gulp.dest(DIST_DIR));
+        });
+});
+
+gulp.task('release:patch', function () {
+    runSequence('clean',
+        'version:minor',
         'default',
         function() {
             return gulp.src('build/**')
