@@ -1,4 +1,4 @@
-[![Code Climate](https://codeclimate.com/github/crea1/csgo-bsg/badges/gpa.svg)](https://codeclimate.com/github/crea1/csgo-bsg)
+[![Build Status](https://travis-ci.org/crea1/csgo-bsg.svg?branch=develop)](https://travis-ci.org/crea1/csgo-bsg)[![Code Climate](https://codeclimate.com/github/crea1/csgo-bsg/badges/gpa.svg)](https://codeclimate.com/github/crea1/csgo-bsg)
 # csgo-bsg
 
 ### Install gulp and bower
