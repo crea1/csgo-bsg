@@ -21,7 +21,7 @@ echo "Adding private key to ssh-agent"
 ssh-add ${keyfile};
 
 echo "Transferring files with rsync"
-rsync -r --delete-after --quiet -avz -e "ssh -i ${keyfile}" ${TRAVIS_BUILD_DIR}/dist/ ${username}@${server}:${server_path};
+rsync -r --delete-after --quiet -avz -e "ssh -i ${keyfile}" ${TRAVIS_BUILD_DIR}/build/ ${username}@${server}:${server_path};
 if [ $? != 0 ]; then
     echo "ERROR: Rsync feilet!"
     exit 1
