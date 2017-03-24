@@ -76,7 +76,9 @@ var app = angular.module('csgoBindApp', []);
                     $("#" + bindname).removeClass("selected");
                     $scope.selectedKey = undefined;
                 } else {
-                    $("#" + $scope.selectedKey).removeClass("selected");
+                    if ($scope.selectedKey) {
+                        $("#" + $scope.selectedKey).removeClass("selected");
+                    }
                     $scope.selectedKey = bindname;
                     $("#" + bindname).addClass("selected");
                 }
