@@ -3,10 +3,12 @@
 var gulp = require('gulp');
 var bump = require('gulp-bump');
 var fs = require('fs');
-var rename = require('gulp-rename');
 var replace = require('gulp-replace');
-var runSequence = require('run-sequence');
 var zip = require('gulp-zip');
+var config = require('../config');
+var del = require('del');
+var rename = require('gulp-rename');
+var uglify = require('gulp-uglify');
 
 var BUILD_DIR = 'build/';
 var DIST_DIR = 'dist/';
@@ -23,6 +25,12 @@ function prepend(str) {
 var d = new Date();
 var CURRENT_DATE = d.getFullYear() + "" + prepend(d.getMonth()+ 1) + "" + d.getDate() + "" + prepend(d.getHours()) + "" + prepend(d.getMinutes()) + "" + prepend(d.getSeconds());
 
+
+// Remove build folder
+gulp.task('clean', function() {
+    return del([config.build, config.dist]);
+});
+
 // Move html files and update references
 gulp.task('html', function() {
     return gulp.src(['src/index.html','src/favicon.ico'])
@@ -30,6 +38,14 @@ gulp.task('html', function() {
         .pipe(replace('css/style.css', 'css/style.css?ver=' + CURRENT_DATE))
         .pipe(replace('buildVersion', pkg().version))
         .pipe(gulp.dest(BUILD_DIR));
+});
+
+// Minify javascripts
+gulp.task('js', function() {
+    return gulp.src(config.js.src)
+        .pipe(uglify({ mangle:true }))
+        .pipe(rename({ extname: '.min.js' }))
+        .pipe(gulp.dest(config.js.build));
 });
 
 // Move datafiles
@@ -68,40 +84,8 @@ gulp.task('version:minor', function () {
         .pipe(gulp.dest('./'));
 });
 
-
-gulp.task('release:dev', ['default'], function () {
+gulp.task('zip', function () {
     return gulp.src('build/**')
-        .pipe(zip('csgo-bsg-' + pkg().version +'-'+ CURRENT_DATE + '.zip'))
+        .pipe(zip('csgo-bsg-' + pkg().version + '.zip'))
         .pipe(gulp.dest(DIST_DIR));
-});
-
-gulp.task('release:minor', function () {
-    runSequence('clean',
-        'version:minor',
-        'default',
-        function() {
-            return gulp.src('build/**')
-                .pipe(zip('csgo-bsg-' + pkg().version +'.zip'))
-                .pipe(gulp.dest(DIST_DIR));
-        });
-});
-
-gulp.task('release:patch', function () {
-    runSequence('clean',
-        'version:minor',
-        'default',
-        function() {
-            return gulp.src('build/**')
-            .pipe(zip('csgo-bsg-' + pkg().version +'.zip'))
-            .pipe(gulp.dest(DIST_DIR));
-        });
-});
-
-
-
-// Default, builds project
-gulp.task('default', function() {
-    runSequence('clean',
-        ['js', 'html', 'styles','data', 'bower_components', 'images']
-    );
 });

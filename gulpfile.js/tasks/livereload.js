@@ -9,7 +9,7 @@ gulp.task('connect', function() {
     });
 });
 
-gulp.task('html-connect', ['default'], function () {
+gulp.task('html-connect',  function () {
     gulp.src(['./build/*.html'])
         .pipe(connect.reload());
 });
@@ -19,5 +19,4 @@ gulp.task('watch', function () {
 });
 
 
-// Run this for live reload when code is changed
-gulp.task('reload', ['connect', 'watch', 'default']);
+
